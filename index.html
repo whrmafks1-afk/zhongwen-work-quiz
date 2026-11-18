@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#FAF8F3" />
+  <meta name="theme-color" content="#0E2A26" />
   <title>중국어 한입 퀴즈 | 업무 중국어 · 금란지교</title>
   <meta name="description" content="출근길 5분, 업무 중국어 표현을 가볍게 익히는 퀴즈. 매일 10문제로 오늘의 표현을 내 것으로." />
   <meta property="og:title" content="중국어 한입 퀴즈 | 금란지교" />
@@ -342,12 +342,121 @@
     }
     .toast.show{opacity:1;transform:translate(-50%,0)}
 
+    /* ══════════ 베이징 저녁 3D 배경 ══════════ */
+    body{background:#0B211E}
+    .page{position:relative;z-index:1}
+    #beijing-scene{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;contain:layout paint}
+    #beijing-scene .sky{
+      position:absolute;inset:0;
+      background:
+        radial-gradient(120% 58% at 50% 99%, rgba(255,203,132,.62) 0%, rgba(255,170,98,.26) 34%, rgba(255,150,80,0) 68%),
+        linear-gradient(180deg,#071614 0%,#0C2521 14%,#143932 30%,#26463C 44%,#4C4236 57%,#7B4F36 69%,#B2703F 81%,#DF9E60 91%,#F6D3A2 100%)
+    }
+    #beijing-scene .sun{
+      position:absolute;left:50%;top:90%;width:min(70vw,820px);aspect-ratio:1;transform:translate(-50%,-50%);
+      border-radius:50%;filter:blur(4px);
+      background:radial-gradient(circle, rgba(255,241,203,.92) 0%, rgba(255,197,120,.52) 24%, rgba(255,153,83,.22) 46%, rgba(255,140,70,0) 70%)
+    }
+    #beijing-scene .haze{
+      position:absolute;left:0;right:0;bottom:0;height:48%;
+      background:linear-gradient(180deg, rgba(255,176,104,0) 0%, rgba(247,196,140,.16) 54%, rgba(255,216,168,.34) 100%)
+    }
+    #beijing-scene canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+    #beijing-scene .vignette{position:absolute;inset:0;background:radial-gradient(125% 92% at 50% 42%, rgba(0,0,0,0) 44%, rgba(3,14,12,.46) 100%)}
+    #beijing-scene .grain{
+      position:absolute;inset:0;opacity:.20;mix-blend-mode:overlay;
+      background-image:radial-gradient(rgba(255,255,255,.5) .5px, rgba(255,255,255,0) .7px);
+      background-size:3px 3px
+    }
+
+    /* CSS 3D 폴백 실루엣 (WebGL 미지원 시에만 보임) */
+    #beijing-scene .fallback{position:absolute;inset:0;perspective:1000px;perspective-origin:50% 72%}
+    body.webgl #beijing-scene .fallback{display:none}
+    .fb-layer{position:absolute;left:0;bottom:0;width:100%;height:min(76vh,800px);will-change:transform}
+    .fb-layer svg{display:block;width:100%;height:100%}
+    .fb-lanterns{position:absolute;inset:0}
+    .fb-lantern{
+      position:absolute;width:26px;height:34px;border-radius:50% 50% 46% 46%/48% 48% 52% 52%;
+      background:radial-gradient(circle at 36% 30%,#FFE0B2,#E8503A 44%,#A8231A 78%,#6C1610 100%);
+      box-shadow:0 0 26px 7px rgba(255,110,60,.4), 0 0 68px 22px rgba(255,120,60,.16);
+      animation:lantFloat 8s ease-in-out infinite;opacity:.92
+    }
+    .fb-lantern::after{content:"";position:absolute;left:50%;top:100%;width:2px;height:13px;transform:translateX(-50%);background:linear-gradient(#E7B25A,rgba(231,178,90,0))}
+    @keyframes lantFloat{0%,100%{transform:translate3d(0,0,0) rotate(-3deg)}50%{transform:translate3d(6px,-18px,0) rotate(3deg)}}
+
+    /* ══════════ 한지 패널 — 가독성 유지 ══════════ */
+    .topbar,.site-foot{
+      background:linear-gradient(180deg,rgba(255,253,248,.95),rgba(249,244,234,.91));
+      border:1px solid rgba(255,255,255,.55);
+      box-shadow:0 26px 48px -36px rgba(0,0,0,.9);
+      -webkit-backdrop-filter:blur(12px) saturate(1.05);
+      backdrop-filter:blur(12px) saturate(1.05)
+    }
+    .topbar{padding:11px 15px;border-radius:18px;margin-bottom:22px}
+    .intro{
+      padding:22px 22px 20px;border-radius:26px;
+      background:linear-gradient(180deg,rgba(251,247,238,.94),rgba(245,238,224,.91));
+      border:1px solid rgba(255,255,255,.5);
+      box-shadow:0 44px 74px -56px rgba(0,0,0,.95), inset 0 0 0 1px rgba(217,155,38,.10);
+      -webkit-backdrop-filter:blur(16px) saturate(1.06);
+      backdrop-filter:blur(16px) saturate(1.06)
+    }
+    .site-foot{border-radius:20px;padding:16px 18px;margin-top:32px;border-top:1px solid rgba(255,255,255,.55)}
+
+    /* ══════════ 3D 입체 퀴즈 카드 ══════════ */
+    .card-stage{perspective:1500px;perspective-origin:50% 38%;position:relative}
+    .card-tilt{transform-style:preserve-3d;transform:rotateX(0deg) rotateY(0deg);will-change:transform;transition:transform .6s cubic-bezier(.22,.8,.28,1)}
+    .card-stage.tilting .card-tilt{transition:transform .1s linear}
+    .card-inner{position:relative;transform-style:preserve-3d;transform-origin:50% 48% 0;will-change:transform,opacity}
+    .quiz-card{
+      background:linear-gradient(180deg,rgba(255,253,250,.975) 0%,rgba(252,247,238,.96) 56%,rgba(250,244,232,.955) 100%);
+      border:1px solid rgba(255,255,255,.72);
+      box-shadow:0 64px 96px -64px rgba(0,0,0,.98), 0 26px 48px -38px rgba(0,0,0,.72), inset 0 0 0 1px rgba(217,155,38,.10)
+    }
+    .card-sheen{
+      position:absolute;inset:0;border-radius:var(--radius);pointer-events:none;z-index:0;opacity:0;
+      background:radial-gradient(440px 320px at var(--sx,50%) var(--sy,0%), rgba(255,255,255,.55), rgba(255,247,232,.18) 42%, rgba(255,255,255,0) 68%);
+      transition:opacity .45s ease
+    }
+    .card-stage.tilting .card-sheen{opacity:.75}
+
+    /* 입체감 있는 버튼 눌림 */
+    .answer:active:not(:disabled){
+      transform:translateY(2px) scale(.992);
+      box-shadow:inset 0 3px 7px rgba(27,42,36,.16), inset 0 -1px 0 rgba(255,255,255,.65);
+      border-color:rgba(31,110,88,.42)
+    }
+    .primary:active,.secondary:active{
+      transform:translateY(2px) scale(.994);
+      box-shadow:inset 0 4px 10px rgba(0,0,0,.3), 0 6px 12px -10px rgba(0,0,0,.6)
+    }
+    .market a.market-btn:active{transform:translateY(2px) scale(.994);box-shadow:inset 0 4px 10px rgba(0,0,0,.42)}
+    .pop-bubble{animation:none}
+
+    @supports not ((backdrop-filter:blur(2px)) or (-webkit-backdrop-filter:blur(2px))){
+      .intro{background:rgba(251,247,238,.985)}
+      .topbar,.site-foot{background:rgba(252,248,240,.985)}
+    }
+
     /* ── mobile ── */
     @media (max-width:900px){
       .layout{grid-template-columns:1fr;gap:18px}
       .intro{position:static}
       .lede{max-width:none}
       .page{padding:16px 16px 30px}
+    }
+    @media (max-width:900px){
+      .intro{padding:16px 16px 14px;border-radius:22px}
+      .card-stage{perspective:1100px}
+      .site-foot{margin-top:22px}
+    }
+    @media (max-width:640px){
+      .topbar{padding:8px 11px;border-radius:15px;margin-bottom:12px}
+      .intro{padding:14px 14px 12px;border-radius:20px}
+      .quiz-card{border-radius:20px}
+      .card-sheen{display:none}
+      .site-foot{border-radius:16px;padding:13px 13px;margin-top:20px}
+      .fb-layer{height:min(62vh,520px)}
     }
     @media (max-width:640px){
       .page{padding:12px 13px 26px}
@@ -429,6 +538,65 @@
   </style>
 </head>
 <body>
+  <div id="beijing-scene" aria-hidden="true">
+    <div class="sky"></div>
+    <div class="sun"></div>
+    <div class="haze"></div>
+
+    <div class="fallback" id="fallback-scene">
+      <div class="fb-layer fb-far">
+        <svg viewBox="0 0 1200 420" preserveAspectRatio="xMidYMax slice">
+          <path fill="#22392F" d="M0,420 L0,306 C66,276 118,214 196,204 C268,195 300,248 360,254 C432,261 462,196 540,188 C622,180 660,246 736,252 C812,258 848,198 928,192 C1012,186 1052,250 1122,256 C1162,260 1184,282 1200,290 L1200,420 Z"/>
+          <path fill="#1B322A" opacity=".75" d="M0,420 L0,340 C120,318 240,330 360,336 C520,344 700,318 860,330 C1000,340 1120,336 1200,344 L1200,420 Z"/>
+        </svg>
+      </div>
+      <div class="fb-layer fb-mid">
+        <svg viewBox="0 0 1200 420" preserveAspectRatio="xMidYMax slice">
+          <g fill="#16302A">
+            <path d="M470,420 L730,420 L716,392 L484,392 Z"/>
+            <path d="M486,392 L714,392 L702,368 L498,368 Z"/>
+            <path d="M556,368 L644,368 L638,306 L562,306 Z"/>
+            <path d="M505,306 Q516,300 528,284 Q560,272 600,270 Q640,272 672,284 Q684,300 695,306 Q600,318 505,306 Z"/>
+            <path d="M573,270 L627,270 L624,240 L576,240 Z"/>
+            <path d="M534,240 Q544,234 552,220 Q576,210 600,209 Q624,210 648,220 Q656,234 666,240 Q600,250 534,240 Z"/>
+            <path d="M584,209 L616,209 L614,188 L586,188 Z"/>
+            <path d="M560,188 Q568,183 574,173 Q588,166 600,165 Q612,166 626,173 Q632,183 640,188 Q600,195 560,188 Z"/>
+            <path d="M597,165 L603,165 L602,150 L598,150 Z"/>
+            <circle cx="600" cy="146" r="4.5"/>
+          </g>
+        </svg>
+      </div>
+      <div class="fb-layer fb-near">
+        <svg viewBox="0 0 1200 420" preserveAspectRatio="xMidYMax slice">
+          <defs>
+            <g id="fbGate" fill="#0D201D">
+              <path d="M-46,0 L46,0 L46,-34 L-46,-34 Z"/>
+              <path d="M-30,-34 L30,-34 L30,-62 L-30,-62 Z"/>
+              <path d="M-42,-62 Q-36,-66 -32,-76 Q-16,-88 0,-90 Q16,-88 32,-76 Q36,-66 42,-62 Q0,-55 -42,-62 Z"/>
+              <path d="M-22,-90 L22,-90 L22,-104 L-22,-104 Z"/>
+              <path d="M-32,-104 Q-27,-108 -24,-115 Q-12,-123 0,-124 Q12,-123 24,-115 Q27,-108 32,-104 Q0,-98 -32,-104 Z"/>
+            </g>
+          </defs>
+          <path fill="#0D201D" d="M0,420 L0,360 L1200,360 L1200,420 Z"/>
+          <g transform="translate(150,360) scale(.62)"><use href="#fbGate"/></g>
+          <g transform="translate(600,356) scale(1)"><use href="#fbGate"/></g>
+          <g transform="translate(1050,360) scale(.62)"><use href="#fbGate"/></g>
+        </svg>
+      </div>
+      <div class="fb-lanterns" id="fb-lanterns">
+        <span class="fb-lantern" style="left:12%;top:26%;animation-delay:-1s"></span>
+        <span class="fb-lantern" style="left:76%;top:18%;width:20px;height:26px;animation-delay:-3s"></span>
+        <span class="fb-lantern" style="left:48%;top:12%;width:16px;height:21px;animation-delay:-5s"></span>
+        <span class="fb-lantern" style="left:88%;top:38%;animation-delay:-2s"></span>
+        <span class="fb-lantern" style="left:26%;top:8%;width:14px;height:19px;animation-delay:-6s"></span>
+        <span class="fb-lantern" style="left:62%;top:34%;width:18px;height:24px;animation-delay:-4s"></span>
+      </div>
+    </div>
+
+    <div class="vignette"></div>
+    <div class="grain"></div>
+  </div>
+
   <div class="page">
     <header class="topbar">
       <div class="brand">
@@ -463,7 +631,11 @@
         </section>
       </div>
 
+      <div class="card-stage" id="card-stage">
+        <div class="card-tilt" id="card-tilt">
+        <div class="card-inner" id="card-inner">
       <section class="quiz-card" aria-label="중국어 퀴즈">
+        <span class="card-sheen" id="card-sheen" aria-hidden="true"></span>
         <div class="pop" id="pop" aria-hidden="true">
           <span class="pop-bubble" id="pop-bubble">잘했어요!</span>
           <svg class="pop-char" viewBox="0 0 120 120" role="img" aria-hidden="true">
@@ -550,6 +722,9 @@
           </div>
         </div>
       </section>
+        </div>
+        </div>
+      </div>
     </div>
 
     <footer class="site-foot">
@@ -756,6 +931,71 @@
     popTimer = setTimeout(() => ui.pop.classList.remove('on'), 1550);
   }
 
+  /* ── 3D card: tilt + turn ── */
+  const stageEl = document.getElementById('card-stage');
+  const tiltEl = document.getElementById('card-tilt');
+  const innerEl = document.getElementById('card-inner');
+  const sheenEl = document.getElementById('card-sheen');
+  let flipping = false;
+  if (stageEl && tiltEl && !reduceMotion) {
+    const MAX_X = 7, MAX_Y = 9;
+    const tilt = { rx:0, ry:0, trx:0, try:0, raf:0 };
+    const apply = () => {
+      tilt.raf = 0;
+      tilt.rx += (tilt.trx - tilt.rx) * 0.12;
+      tilt.ry += (tilt.try - tilt.ry) * 0.12;
+      tiltEl.style.transform = `rotateX(${tilt.rx.toFixed(2)}deg) rotateY(${tilt.ry.toFixed(2)}deg)`;
+      if (Math.abs(tilt.trx - tilt.rx) > 0.03 || Math.abs(tilt.try - tilt.ry) > 0.03) {
+        tilt.raf = requestAnimationFrame(apply);
+      }
+    };
+    const kick = () => { if (!tilt.raf) tilt.raf = requestAnimationFrame(apply); };
+    stageEl.addEventListener('pointermove', (e) => {
+      const r = stageEl.getBoundingClientRect();
+      if (!r.width || !r.height) return;
+      const px = Math.min(Math.max((e.clientX - r.left) / r.width, 0), 1);
+      const py = Math.min(Math.max((e.clientY - r.top) / r.height, 0), 1);
+      tilt.try = (px - 0.5) * 2 * MAX_Y;
+      tilt.trx = -(py - 0.5) * 2 * MAX_X;
+      if (sheenEl) {
+        sheenEl.style.setProperty('--sx', (px * 100).toFixed(1) + '%');
+        sheenEl.style.setProperty('--sy', (py * 100).toFixed(1) + '%');
+      }
+      kick();
+    }, { passive:true });
+    stageEl.addEventListener('pointerenter', () => stageEl.classList.add('tilting'));
+    stageEl.addEventListener('pointerleave', () => {
+      stageEl.classList.remove('tilting');
+      tilt.trx = 0; tilt.try = 0; kick();
+    });
+  }
+
+  function resetCard(){
+    flipping = false;
+    if (!innerEl) return;
+    innerEl.style.transition = 'none';
+    innerEl.style.transform = 'rotateY(0deg) translateZ(0) scale(1)';
+    innerEl.style.opacity = '1';
+  }
+
+  function turnCard(swap){
+    if (reduceMotion || !innerEl) { swap(); return; }
+    flipping = true;
+    innerEl.style.transition = 'transform .26s cubic-bezier(.45,0,.75,0), opacity .2s ease';
+    innerEl.style.transform = 'rotateY(-58deg) translateZ(-46px) scale(.95)';
+    innerEl.style.opacity = '0.18';
+    setTimeout(() => {
+      swap();
+      innerEl.style.transition = 'none';
+      innerEl.style.transform = 'rotateY(58deg) translateZ(-46px) scale(.95)';
+      void innerEl.offsetWidth;
+      innerEl.style.transition = 'transform .46s cubic-bezier(.18,.9,.28,1), opacity .3s ease';
+      innerEl.style.transform = 'rotateY(0deg) translateZ(0) scale(1)';
+      innerEl.style.opacity = '1';
+      setTimeout(() => { flipping = false; }, 470);
+    }, 250);
+  }
+
   /* ── rendering ── */
   function updateCombo(){
     if (state.streak >= 2) {
@@ -827,7 +1067,7 @@
   }
 
   function choose(btn, choice){
-    if (locked) return;
+    if (locked || flipping) return;
     const q = state.round[state.index];
 
     if (choice === q.answer) {
@@ -895,13 +1135,16 @@
   }
 
   function next(){
-    if (state.index < state.round.length - 1) {
-      state.index += 1;
-      render();
-      ui.quiz.scrollIntoView({ block: 'nearest', behavior: reduceMotion ? 'auto' : 'smooth' });
-    } else {
-      finish();
-    }
+    if (flipping) return;
+    turnCard(() => {
+      if (state.index < state.round.length - 1) {
+        state.index += 1;
+        render();
+        ui.quiz.scrollIntoView({ block: 'nearest', behavior: reduceMotion ? 'auto' : 'smooth' });
+      } else {
+        finish();
+      }
+    });
   }
 
   function finish(){
@@ -963,6 +1206,7 @@
 
   /* ── rounds ── */
   function prepare(list, mode){
+    resetCard();
     state.round = list.map(q => Object.assign({}, q, { missedOnce: false }));
     state.index = 0;
     state.score = 0;
@@ -1011,6 +1255,341 @@
   });
 
   start();
+})();
+</script>
+<script>
+/* ══════════ 베이징 저녁 3D 배경 (Three.js + CSS 3D 폴백) ══════════ */
+(function () {
+  const host = document.getElementById('beijing-scene');
+  if (!host) return;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const ptr = { x:0, y:0, tx:0, ty:0 };
+
+  const onMove = (e) => {
+    if (e.clientX === undefined) return;
+    ptr.tx = (e.clientX / window.innerWidth - 0.5) * 2;
+    ptr.ty = (e.clientY / window.innerHeight - 0.5) * 2;
+  };
+  window.addEventListener('pointermove', onMove, { passive:true });
+  window.addEventListener('touchmove', (e) => { if (e.touches && e.touches[0]) onMove(e.touches[0]); }, { passive:true });
+
+  /* ── CSS 3D 폴백 패럴랙스 ── */
+  const fbLayers = Array.from(document.querySelectorAll('.fb-layer'));
+  let fbRaf = 0, fbOn = true;
+  const fbTrack = { x:0, y:0 };
+  function fbLoop() {
+    fbRaf = 0;
+    fbTrack.x += (ptr.tx - fbTrack.x) * 0.07;
+    fbTrack.y += (ptr.ty - fbTrack.y) * 0.07;
+    fbLayers.forEach((el, i) => {
+      const d = (i + 1) * 6.5;
+      el.style.transform = 'translate3d(' + (-fbTrack.x * d).toFixed(2) + 'px,' + (-fbTrack.y * d * 0.42).toFixed(2) + 'px,0)';
+    });
+    if (fbOn && (Math.abs(ptr.tx - fbTrack.x) > 0.003 || Math.abs(ptr.ty - fbTrack.y) > 0.003)) {
+      fbRaf = requestAnimationFrame(fbLoop);
+    }
+  }
+  window.addEventListener('pointermove', () => { if (fbOn && !fbRaf && !reduce) fbRaf = requestAnimationFrame(fbLoop); }, { passive:true });
+
+  /* ── Three.js 장면 ── */
+  import('https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js')
+    .then((THREE) => {
+      try { build(THREE); } catch (err) { console.warn('3D background unavailable', err); }
+    })
+    .catch(() => { /* 폴백 유지 */ });
+
+  function build(THREE) {
+    const canvas = document.createElement('canvas');
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias:true, alpha:true, powerPreference:'high-performance' });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    canvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;display:block';
+    host.insertBefore(canvas, host.querySelector('.fallback'));
+    document.body.classList.add('webgl');
+    fbOn = false;
+    if (fbRaf) { cancelAnimationFrame(fbRaf); fbRaf = 0; }
+
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.Fog(0xC9864D, 150, 600);
+    const camera = new THREE.PerspectiveCamera(45, 1, 1, 1600);
+    camera.position.set(0, 0, 110);
+
+    scene.add(new THREE.AmbientLight(0x7A6250, 0.9));
+    const key = new THREE.DirectionalLight(0xFFB877, 1.6); key.position.set(-80, 6, 90); scene.add(key);
+    const rim = new THREE.DirectionalLight(0x4C8A7C, 0.55); rim.position.set(70, 80, 30); scene.add(rim);
+    const horizon = new THREE.PointLight(0xFF9A55, 2.4, 460, 2); horizon.position.set(0, -46, -20); scene.add(horizon);
+
+    function radialTex(stops) {
+      const c = document.createElement('canvas'); c.width = c.height = 128;
+      const g = c.getContext('2d');
+      const grd = g.createRadialGradient(64, 64, 0, 64, 64, 64);
+      stops.forEach((s) => grd.addColorStop(s[0], s[1]));
+      g.fillStyle = grd; g.fillRect(0, 0, 128, 128);
+      const t = new THREE.CanvasTexture(c);
+      t.colorSpace = THREE.SRGBColorSpace;
+      return t;
+    }
+    const glowTex = radialTex([[0,'rgba(255,216,158,1)'],[0.26,'rgba(255,150,80,.62)'],[0.6,'rgba(255,108,58,.16)'],[1,'rgba(255,90,50,0)']]);
+    const dotTex  = radialTex([[0,'rgba(255,238,204,1)'],[0.42,'rgba(255,206,140,.5)'],[1,'rgba(255,190,120,0)']]);
+
+    const flat = (hex) => new THREE.MeshBasicMaterial({ color:hex });
+    const goldLine = (op) => new THREE.LineBasicMaterial({ color:0xF1C578, transparent:true, opacity:op });
+
+    /* 2D 곡선 지붕 단면 */
+    function roofGeo(w, h, depth) {
+      const s = new THREE.Shape();
+      s.moveTo(-w / 2, 0);
+      s.quadraticCurveTo(-w * 0.30, h * 0.14, -w * 0.17, h * 0.58);
+      s.quadraticCurveTo(-w * 0.09, h * 0.84, 0, h * 0.97);
+      s.quadraticCurveTo(w * 0.09, h * 0.84, w * 0.17, h * 0.58);
+      s.quadraticCurveTo(w * 0.30, h * 0.14, w / 2, 0);
+      s.quadraticCurveTo(0, -h * 0.30, -w / 2, 0);
+      let g;
+      if (depth) {
+        g = new THREE.ExtrudeGeometry(s, { depth, bevelEnabled:false, curveSegments:16 });
+        g.translate(0, 0, -depth / 2);
+      } else {
+        g = new THREE.ShapeGeometry(s, 22);
+      }
+      return g;
+    }
+    function roofMesh(w, h, depth, color, rimOp) {
+      const geo = roofGeo(w, h, depth);
+      const m = new THREE.Mesh(geo, flat(color));
+      if (rimOp) m.add(new THREE.LineSegments(new THREE.EdgesGeometry(geo, 26), goldLine(rimOp)));
+      return m;
+    }
+
+    /* 근경 · 자금성 성벽과 오문 */
+    const wallGroup = new THREE.Group();
+    wallGroup.position.z = -40;
+    scene.add(wallGroup);
+    const BASE = -60, WALL_H = 19;
+    const darkWall = 0x0D1F1B;
+    const wall = new THREE.Mesh(new THREE.BoxGeometry(360, WALL_H, 10), flat(darkWall));
+    wall.position.y = BASE + WALL_H / 2;
+    wallGroup.add(wall);
+    const cap = new THREE.Mesh(new THREE.BoxGeometry(360, 1.8, 12), flat(0x091613));
+    cap.position.y = BASE + WALL_H;
+    wallGroup.add(cap);
+    [-124, 0, 124].forEach((x) => {
+      const t = new THREE.Group();
+      t.position.set(x, BASE + WALL_H, 0);
+      const body = new THREE.Mesh(new THREE.BoxGeometry(40, 17, 14), flat(darkWall));
+      body.position.y = 8.5; t.add(body);
+      const r1 = roofMesh(56, 15, 14, 0x10261F, 0.5); r1.position.y = 17; t.add(r1);
+      const body2 = new THREE.Mesh(new THREE.BoxGeometry(25, 9, 10), flat(darkWall));
+      body2.position.y = 27.5; t.add(body2);
+      const r2 = roofMesh(36, 12, 10, 0x10261F, 0.55); r2.position.y = 36.5; t.add(r2);
+      wallGroup.add(t);
+    });
+
+    /* 중경 · 천단 */
+    const temple = new THREE.Group();
+    temple.position.z = -150;
+    scene.add(temple);
+    const TB = -54;
+    const hallDark = 0x14312A;
+    function latheRoof(rb, h, color) {
+      const pts = [];
+      const N = 18;
+      for (let i = 0; i <= N; i++) {
+        const t = i / N;
+        pts.push(new THREE.Vector2(Math.max(0.5, rb * Math.pow(1 - t, 0.5)), h * t));
+      }
+      const geo = new THREE.LatheGeometry(pts, 46);
+      const m = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ color, side:THREE.DoubleSide }));
+      const ring = new THREE.Mesh(
+        new THREE.TorusGeometry(rb, 0.5, 6, 52),
+        new THREE.MeshBasicMaterial({ color:0xF1C578, transparent:true, opacity:0.5 })
+      );
+      ring.rotation.x = Math.PI / 2;
+      m.add(ring);
+      return m;
+    }
+    function cyl(rt, rbm, h, y, color) {
+      const m = new THREE.Mesh(new THREE.CylinderGeometry(rt, rbm, h, 44), flat(color));
+      m.position.y = y;
+      return m;
+    }
+    temple.add(cyl(34, 34, 5, TB + 2.5, hallDark));
+    temple.add(cyl(30, 30, 5, TB + 7.5, hallDark));
+    temple.add(cyl(15, 15, 11, TB + 15.5, hallDark));
+    const tr1 = latheRoof(21, 9, 0x18362D); tr1.position.y = TB + 21; temple.add(tr1);
+    temple.add(cyl(9.5, 9.5, 5, TB + 30, hallDark));
+    const tr2 = latheRoof(15, 8, 0x18362D); tr2.position.y = TB + 32.5; temple.add(tr2);
+    temple.add(cyl(6, 6, 4, TB + 38, hallDark));
+    const tr3 = latheRoof(11, 7, 0x18362D); tr3.position.y = TB + 40; temple.add(tr3);
+    const finial = new THREE.Mesh(new THREE.ConeGeometry(1.7, 5, 16), flat(0xD9A94E));
+    finial.position.y = TB + 48.5; temple.add(finial);
+
+    /* 중경 · 작은 탑 두 개 */
+    [-96, 104].forEach((x, i) => {
+      const p = new THREE.Group();
+      p.position.set(x, -56, -118);
+      const s = i ? 0.92 : 1;
+      p.scale.setScalar(s);
+      p.add(cyl(7, 7.5, 26, 13, 0x12302A));
+      let y = 26;
+      [11, 9, 6.5].forEach((r) => {
+        const r2 = latheRoof(r, 5.4, 0x17352C);
+        r2.position.y = y; p.add(r2);
+        y += 5.4;
+        const b = cyl(r * 0.55, r * 0.55, 5, y + 2.5, 0x12302A);
+        p.add(b);
+        y += 5;
+      });
+      scene.add(p);
+    });
+
+    /* 원경 · 언덕 */
+    const hills = new THREE.Group();
+    hills.position.z = -270;
+    scene.add(hills);
+    const hs = new THREE.Shape();
+    hs.moveTo(-520, -140);
+    hs.lineTo(-520, -34);
+    hs.bezierCurveTo(-420, -18, -350, 12, -250, -2);
+    hs.bezierCurveTo(-170, -14, -100, 8, 0, -3);
+    hs.bezierCurveTo(90, -14, 150, 10, 250, -2);
+    hs.bezierCurveTo(340, -12, 430, 4, 520, -16);
+    hs.lineTo(520, -140);
+    hs.closePath();
+    hills.add(new THREE.Mesh(new THREE.ShapeGeometry(hs, 26), flat(0x26423A)));
+
+    /* 홍등 */
+    const lanterns = [];
+    const lanternGroup = new THREE.Group();
+    scene.add(lanternGroup);
+    const bodyMats = [0xD8322A, 0xCE2C24, 0xE04A34];
+    const capMat = new THREE.MeshStandardMaterial({ color:0xE7B25A, metalness:0.85, roughness:0.32, emissive:0x3A2308, emissiveIntensity:0.5 });
+    const COUNT = window.innerWidth < 700 ? 9 : 15;
+    for (let i = 0; i < COUNT; i++) {
+      const g = new THREE.Group();
+      const size = 1.7 + Math.random() * 1.9;
+      const bodyMat = new THREE.MeshStandardMaterial({
+        color: bodyMats[i % bodyMats.length], emissive:0x8E150C, emissiveIntensity:1.0, roughness:0.42, metalness:0.05
+      });
+      const body = new THREE.Mesh(new THREE.SphereGeometry(1, 22, 16), bodyMat);
+      body.scale.set(1, 1.16, 1);
+      const top = new THREE.Mesh(new THREE.CylinderGeometry(0.34, 0.5, 0.3, 14), capMat); top.position.y = 1.2;
+      const bot = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.34, 0.26, 14), capMat); bot.position.y = -1.2;
+      const cord = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.95, 6), capMat); cord.position.y = -1.78;
+      const glow = new THREE.Sprite(new THREE.SpriteMaterial({
+        map: glowTex, color:0xFFB27C, transparent:true, blending:THREE.AdditiveBlending, depthWrite:false, opacity:0.85
+      }));
+      glow.scale.set(9, 9, 1);
+      g.add(body, top, bot, cord, glow);
+      g.scale.setScalar(size);
+      lanternGroup.add(g);
+      lanterns.push({
+        g, glow,
+        nx: (Math.random() - 0.5) * 1.85,
+        ny: -0.35 + Math.random() * 1.25,
+        z: -130 + Math.random() * 150,
+        size,
+        ph: Math.random() * Math.PI * 2,
+        sp: 0.35 + Math.random() * 0.5,
+        amp: 1.6 + Math.random() * 2.4,
+        par: 0.5 + Math.random() * 1.1
+      });
+    }
+
+    /* 금빛 입자 */
+    const PN = window.innerWidth < 700 ? 200 : 430;
+    const pGeo = new THREE.BufferGeometry();
+    const pPos = new Float32Array(PN * 3);
+    const pSpd = new Float32Array(PN);
+    const pPh = new Float32Array(PN);
+    for (let i = 0; i < PN; i++) {
+      pPos[i * 3] = (Math.random() - 0.5) * 320;
+      pPos[i * 3 + 1] = -60 + Math.random() * 130;
+      pPos[i * 3 + 2] = -140 + Math.random() * 190;
+      pSpd[i] = 0.5 + Math.random() * 1.2;
+      pPh[i] = Math.random() * Math.PI * 2;
+    }
+    pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
+    const pMat = new THREE.PointsMaterial({
+      size:1.7, map:dotTex, transparent:true, depthWrite:false,
+      blending:THREE.AdditiveBlending, color:0xFFD9A2, opacity:0.9, sizeAttenuation:true
+    });
+    const points = new THREE.Points(pGeo, pMat);
+    scene.add(points);
+
+    /* 화면 크기 대응 */
+    let halfW = 45, halfH = 45;
+    function resize() {
+      const w = window.innerWidth, h = window.innerHeight;
+      const aspect = w / h;
+      renderer.setSize(w, h, false);
+      camera.aspect = aspect;
+      camera.position.z = aspect < 0.75 ? 110 * Math.pow(0.75 / aspect, 0.55) : 110;
+      camera.updateProjectionMatrix();
+      halfH = camera.position.z * Math.tan((45 / 2) * Math.PI / 180);
+      halfW = halfH * aspect;
+      const sx = Math.max(0.35, Math.min(1, aspect / 1.2));
+      lanterns.forEach((L) => {
+        L.baseX = L.nx * halfW * 0.94 * sx + L.nx * 12;
+        L.baseY = L.ny * halfH * 0.82;
+      });
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    /* 렌더 루프 */
+    const clock = new THREE.Clock();
+    let raf = 0;
+    let running = true;
+    const smooth = { x:0, y:0 };
+
+    function drawOnce() {
+      smooth.x += (ptr.tx - smooth.x) * 0.05;
+      smooth.y += (ptr.ty - smooth.y) * 0.05;
+    }
+    function frame() {
+      raf = 0;
+      if (!running) return;
+      const dt = Math.min(clock.getDelta(), 0.05);
+      const t = clock.elapsedTime;
+      smooth.x += (ptr.tx - smooth.x) * 0.045;
+      smooth.y += (ptr.ty - smooth.y) * 0.045;
+      const scrollShift = Math.min(window.scrollY || 0, 2400) * 0.008;
+      camera.position.x = smooth.x * 17;
+      camera.position.y = -smooth.y * 9 - scrollShift;
+      camera.lookAt(smooth.x * 3.4, -smooth.y * 1.8, 0);
+
+      lanterns.forEach((L) => {
+        L.g.position.x = L.baseX - smooth.x * 2.2 * L.par + Math.cos(t * L.sp * 0.8 + L.ph) * L.amp * 0.8;
+        L.g.position.y = L.baseY + Math.sin(t * L.sp + L.ph) * L.amp - smooth.y * 1.4 * L.par;
+        L.g.position.z = L.z;
+        L.g.rotation.y = t * 0.18 + L.ph;
+        L.g.rotation.z = Math.sin(t * L.sp * 0.7 + L.ph) * 0.11;
+        L.glow.material.opacity = 0.72 + Math.sin(t * 1.5 + L.ph) * 0.16;
+      });
+
+      const arr = pGeo.attributes.position.array;
+      for (let i = 0; i < PN; i++) {
+        arr[i * 3 + 1] += pSpd[i] * dt * 3.4;
+        arr[i * 3] += Math.sin(t * 0.6 + pPh[i]) * dt * 1.6;
+        if (arr[i * 3 + 1] > 78) arr[i * 3 + 1] = -62;
+      }
+      pGeo.attributes.position.needsUpdate = true;
+
+      renderer.render(scene, camera);
+      raf = requestAnimationFrame(frame);
+    }
+
+    if (reduce) {
+      resize();
+      lanterns.forEach((L) => { L.g.position.set(L.baseX, L.baseY, L.z); });
+      renderer.render(scene, camera);
+    } else {
+      raf = requestAnimationFrame(frame);
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) { running = false; if (raf) { cancelAnimationFrame(raf); raf = 0; } }
+        else if (!running) { running = true; clock.getDelta(); if (!raf) raf = requestAnimationFrame(frame); }
+      });
+    }
+  }
 })();
 </script>
 </body>
