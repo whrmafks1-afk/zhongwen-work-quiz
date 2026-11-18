@@ -350,7 +350,7 @@
       position:absolute;inset:0;
       background:
         radial-gradient(118% 40% at 50% 66%, rgba(255,212,150,.72) 0%, rgba(255,163,94,.26) 38%, rgba(255,150,80,0) 68%),
-        linear-gradient(180deg,#051110 0%,#091F1B 11%,#0F2E2A 21%,#173D36 30%,#2C463C 39%,#4F4531 47%,#7F4E2E 54%,#B36C38 60%,#DD9350 65%,#F3C489 70%,#F8DDB2 73%,#A97647 78%,#54402C 84%,#2C2117 90%,#171511 95%,#0F1310 100%)
+        linear-gradient(180deg,#051110 0%,#091F1B 11%,#0F2E2A 21%,#173D36 30%,#2C463C 39%,#4F4531 47%,#7F4E2E 54%,#B36C38 60%,#DD9350 65%,#F3C489 70%,#F8DDB2 73%,#C58C55 76%,#7A5433 79%,#43301F 83%,#241D15 88%,#141310 94%,#0C100E 100%)
     }
     #beijing-scene .sun{
       position:absolute;left:50%;top:67%;width:min(58vw,660px);aspect-ratio:1;transform:translate(-50%,-50%);
@@ -358,8 +358,8 @@
       background:radial-gradient(circle, rgba(255,244,212,.9) 0%, rgba(255,199,124,.46) 22%, rgba(255,153,83,.2) 44%, rgba(255,140,70,0) 70%)
     }
     #beijing-scene .haze{
-      position:absolute;left:0;right:0;top:56%;height:22%;
-      background:linear-gradient(180deg, rgba(255,176,104,0) 0%, rgba(247,196,140,.22) 52%, rgba(255,214,164,0) 100%)
+      position:absolute;left:0;right:0;top:57%;height:19%;
+      background:linear-gradient(180deg, rgba(255,186,116,0) 0%, rgba(255,196,140,.26) 48%, rgba(255,206,150,.10) 76%, rgba(255,214,164,0) 100%)
     }
     #beijing-scene canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
     #beijing-scene .vignette{position:absolute;inset:0;background:radial-gradient(125% 92% at 50% 42%, rgba(0,0,0,0) 44%, rgba(3,14,12,.46) 100%)}
@@ -1309,7 +1309,7 @@
     if (fbRaf) { cancelAnimationFrame(fbRaf); fbRaf = 0; }
 
     const scene = new THREE.Scene();
-    scene.fog = new THREE.Fog(0xC9864D, 260, 640);
+    scene.fog = new THREE.Fog(0xC9864D, 200, 620);
     const camera = new THREE.PerspectiveCamera(45, 1, 1, 1600);
     camera.position.set(0, 0, 110);
 
@@ -1459,13 +1459,13 @@
     hills.position.set(0, groundY(camZ - HILL_Z), HILL_Z);
     scene.add(hills);
     const hs = new THREE.Shape();
-    hs.moveTo(-620, -60);
+    hs.moveTo(-620, -900);
     hs.lineTo(-620, 22);
     hs.bezierCurveTo(-500, 44, -410, 74, -300, 58);
     hs.bezierCurveTo(-200, 44, -120, 80, 0, 62);
     hs.bezierCurveTo(110, 44, 180, 82, 290, 64);
     hs.bezierCurveTo(390, 48, 490, 70, 620, 50);
-    hs.lineTo(620, -60);
+    hs.lineTo(620, -900);
     hs.closePath();
     hills.add(new THREE.Mesh(new THREE.ShapeGeometry(hs, 26), flat(0x1B332C)));
 
