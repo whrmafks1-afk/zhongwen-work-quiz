@@ -1,0 +1,9 @@
+<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;padding:0;background:#fff}iframe{border:0;display:block}</style></head>
+<body><iframe id="f" src="probe.html"></iframe>
+<script>
+var p = new URLSearchParams(location.search);
+var w = p.get('w') || '390', h = p.get('h') || '844';
+var f = document.getElementById('f');
+f.style.width = w + 'px'; f.style.height = h + 'px';
+window.__logs = function(){ try { return f.contentWindow.__logs || ['no-logs']; } catch(e) { return ['x-origin']; } };
+</script></body></html>
