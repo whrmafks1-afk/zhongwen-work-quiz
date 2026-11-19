@@ -8,6 +8,7 @@ window.addEventListener('unhandledrejection', function(e){ window.__logs.push('R
 (function(){ var ce = console.error; console.error = function(){ window.__logs.push('CE ' + Array.prototype.join.call(arguments,' ')); ce.apply(console, arguments); };
 var cw = console.warn; console.warn = function(){ window.__logs.push('CW ' + Array.prototype.join.call(arguments,' ')); cw.apply(console, arguments); }; })();
 </script>
+<style>html{scrollbar-width:none}html::-webkit-scrollbar{width:0;height:0}</style>
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -1625,5 +1626,79 @@ var cw = console.warn; console.warn = function(){ window.__logs.push('CW ' + Arr
   }
 })();
 </script>
+<script>
+(function(){
+  if (!/autotest/.test(location.search)) return;
+  var KEY = {"你好": "안녕하세요", "谢谢": "감사합니다", "请问": "실례합니다, 여쭤볼게요", "我明白了": "이해했습니다", "请稍等": "잠시만 기다려 주세요", "开会": "회의를 하다", "发邮件": "이메일을 보내다", "我马上回复": "바로 답장하겠습니다", "几点开始？": "몇 시에 시작하나요?", "我会准时到": "제시간에 도착하겠습니다", "辛苦了": "수고하셨습니다", "没问题": "문제없어요", "请发给我": "저에게 보내 주세요", "我需要确认一下": "한번 확인해 봐야 합니다", "合作愉快": "즐거운 협업이 되길 바랍니다", "我现在有空": "저 지금 시간 괜찮아요"};
+  var sleep = function(ms){ return new Promise(function(r){ setTimeout(r, ms); }); };
+  var log = function(){ window.__logs.push('TEST ' + Array.prototype.join.call(arguments, ' ')); };
+  (async function(){
+    await sleep(1200);
+    log('start', 'answers=' + document.querySelectorAll('#answers .answer').length);
+    var flipped = false;
+    for (var i = 0; i < 14; i++) {
+      if (document.getElementById('completion').classList.contains('show')) { log('reached completion at step ' + i); break; }
+      await sleep(700);
+      var hanzi = document.getElementById('prompt').textContent.trim();
+      var want = KEY[hanzi];
+      var opts = Array.prototype.slice.call(document.querySelectorAll('#answers .answer'));
+      var labels = opts.map(function(b){ return b.querySelector('.answer-text').textContent.trim(); });
+      if (!want) { log('NO KEY for', hanzi, labels.join('|')); break; }
+      var pick = opts.filter(function(b){ return b.querySelector('.answer-text').textContent.trim() === want; })[0];
+      if (!pick) { log('NO MATCH', hanzi, '|', labels.join('|')); break; }
+      if (i === 1) {
+        var wrong = opts.filter(function(b){ return b !== pick; })[0];
+        wrong.click(); await sleep(300);
+        var fbBad = document.querySelector('#feedback.bad') ? 'bad-ok' : 'bad-missing';
+        var actBtn = document.getElementById('action-button');
+        var retryLabel = actBtn ? actBtn.textContent : 'none';
+        actBtn.click(); await sleep(300);
+        log('wrong-path', fbBad, 'retry=' + retryLabel, 'recovered=' + !document.querySelector('#feedback.show'));
+      }
+      pick.click(); await sleep(350);
+      var isCorrect = pick.classList.contains('correct');
+      var fb = document.querySelector('#feedback.good') ? 'good' : 'no-good';
+      log('Q' + document.getElementById('question-number').textContent, hanzi, want, isCorrect ? 'CORRECT' : 'WRONG', fb, 'score=' + document.getElementById('score').textContent, 'progress=' + document.getElementById('progress-text').textContent);
+      var act = document.getElementById('action-button');
+      if (!act || document.getElementById('feedback-actions').classList.contains('hidden')) { log('NO ACTION BUTTON'); break; }
+      var t0 = document.getElementById('card-inner').style.transform;
+      act.click();
+      await sleep(60);
+      var mid = document.getElementById('card-inner').style.transform;
+      if (/rotateY/.test(mid) && !/rotateY\(0deg\)/.test(mid)) flipped = true;
+      await sleep(900);
+      log('after-next transform=' + (document.getElementById('card-inner').style.transform || 'none'));
+    }
+    log('flip-animation-seen', flipped);
+    var done = document.getElementById('completion').classList.contains('show');
+    log('completion', done, '| title=' + document.getElementById('complete-title').textContent,
+        '| final=' + document.getElementById('final-score').textContent.trim(),
+        '| best=' + document.getElementById('best-streak').textContent.trim(),
+        '| reviewHidden=' + document.getElementById('review-wrong').hidden,
+        '| reviewLabel=' + document.getElementById('review-wrong').textContent.trim(),
+        '| market=' + !!document.querySelector('.market a.market-btn'));
+    if (!document.getElementById('review-wrong').hidden) {
+      document.getElementById('review-wrong').click();
+      await sleep(900);
+      log('review-mode', document.getElementById('question-kicker').textContent, '| total=' + document.getElementById('question-total').textContent);
+      var h2 = document.getElementById('prompt').textContent.trim();
+      var o2 = Array.prototype.slice.call(document.querySelectorAll('#answers .answer'));
+      var p2 = o2.filter(function(b){ return b.querySelector('.answer-text').textContent.trim() === KEY[h2]; })[0];
+      if (p2) { p2.click(); await sleep(400); log('review-answer', h2, p2.classList.contains('correct') ? 'CORRECT' : 'WRONG'); }
+      var a2 = document.getElementById('action-button');
+      if (a2 && !document.getElementById('feedback-actions').classList.contains('hidden')) { a2.click(); await sleep(900); }
+      log('review-end completion=' + document.getElementById('completion').classList.contains('show'),
+          '| title=' + document.getElementById('complete-title').textContent);
+      document.getElementById('play-again').click();
+      await sleep(900);
+      log('play-again', 'quizHidden=' + document.getElementById('quiz-view').classList.contains('hidden'),
+          '| q=' + document.getElementById('question-number').textContent,
+          '| prompt=' + document.getElementById('prompt').textContent);
+    }
+    log('DONE');
+  })();
+})();
+</script>
+
 </body>
 </html>
