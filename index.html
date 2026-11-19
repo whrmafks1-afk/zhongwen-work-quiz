@@ -1467,7 +1467,7 @@
     hs.bezierCurveTo(390, 48, 490, 70, 620, 50);
     hs.lineTo(620, -900);
     hs.closePath();
-    hills.add(new THREE.Mesh(new THREE.ShapeGeometry(hs, 26), flat(0x1B332C)));
+    hills.add(new THREE.Mesh(new THREE.ShapeGeometry(hs, 26), new THREE.MeshBasicMaterial({ color:0x2B2119, fog:false })));
 
     /* 화면 비율에 맞춰 배치 재계산 */
     function layout() {
