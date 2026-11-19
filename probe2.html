@@ -1,0 +1,1621 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0E2A26" />
+  <title>중국어 한입 퀴즈 | 업무 중국어 · 금란지교</title>
+  <meta name="description" content="출근길 5분, 업무 중국어 표현을 가볍게 익히는 퀴즈. 매일 10문제로 오늘의 표현을 내 것으로." />
+  <meta property="og:title" content="중국어 한입 퀴즈 | 금란지교" />
+  <meta property="og:description" content="업무 중국어, 가볍게 한 문제부터. 매일 10문제 5분 퀴즈." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Serif+KR:wght@600;700;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --cream:#FAF8F3; --cream-deep:#F2EDE2; --card:#FFFDFA;
+      --green:#1F6E58; --green-deep:#14503F; --green-soft:#E8F1EC;
+      --coral:#E06D53; --coral-soft:#FBEBE5;
+      --gold:#D99B26; --gold-soft:#FBF1DC;
+      --ink:#1B2A24; --muted:#7C877F; --line:#EAE4D7;
+      --shadow:0 1px 2px rgba(31,110,88,.05), 0 22px 55px -24px rgba(31,110,88,.30);
+      --shadow-soft:0 1px 2px rgba(27,42,36,.04), 0 10px 28px -16px rgba(31,110,88,.28);
+      --radius:26px;
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+    body{
+      margin:0;color:var(--ink);line-height:1.6;min-height:100vh;
+      font-family:"Noto Sans KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;
+      background:
+        radial-gradient(1000px 480px at 6% -8%, #EDF3E9 0%, rgba(237,243,233,0) 62%),
+        radial-gradient(820px 440px at 102% -4%, #FBEEDF 0%, rgba(251,238,223,0) 58%),
+        var(--cream);
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+    button{font:inherit;color:inherit}
+    a{color:inherit}
+    [hidden]{display:none!important}
+    .page{max-width:1120px;margin:0 auto;padding:20px 22px 36px}
+
+    /* ── top bar ── */
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:26px}
+    .brand{display:flex;align-items:center;gap:11px}
+    .brandmark{
+      display:grid;place-items:center;width:40px;height:40px;border-radius:13px;
+      background:linear-gradient(150deg,var(--green) 0%,var(--green-deep) 100%);
+      color:#F6F1E4;font-family:"Noto Sans SC",sans-serif;font-weight:700;font-size:19px;
+      box-shadow:0 8px 18px -8px rgba(20,80,63,.75);border:1px solid rgba(217,155,38,.45)
+    }
+    .brand-name{display:flex;flex-direction:column;line-height:1.25}
+    .brand-name b{font-size:14.5px;font-weight:900;letter-spacing:-.02em}
+    .brand-name span{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:.02em}
+    .top-note{
+      display:inline-flex;align-items:center;gap:7px;font-size:11.5px;font-weight:700;color:#6F7B73;
+      padding:7px 12px;border-radius:99px;background:rgba(255,255,255,.7);border:1px solid var(--line);
+      white-space:nowrap
+    }
+    .top-note i{width:6px;height:6px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 3px rgba(224,109,83,.14)}
+
+    /* ── layout ── */
+    .layout{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:36px;align-items:start}
+    .intro{position:sticky;top:26px}
+
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;font-size:10.5px;font-weight:800;letter-spacing:.2em;
+      color:var(--green);text-transform:uppercase;margin-bottom:14px
+    }
+    .eyebrow::before{content:"";width:22px;height:2px;background:var(--gold);border-radius:2px}
+    h1{
+      font-family:"Noto Serif KR","Noto Sans KR",serif;font-weight:700;
+      font-size:clamp(30px,3.5vw,44px);line-height:1.28;letter-spacing:-.045em;margin:0 0 14px
+    }
+    h1 em{font-style:normal;color:var(--green);position:relative;white-space:nowrap}
+    h1 em::after{
+      content:"";position:absolute;left:0;right:0;bottom:2px;height:8px;border-radius:3px;
+      background:linear-gradient(90deg,rgba(217,155,38,.28),rgba(217,155,38,0));z-index:-1
+    }
+    .lede{font-size:14px;color:#5F6C64;margin:0 0 18px;line-height:1.75;max-width:34ch}
+    .hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+    .pill{
+      display:inline-flex;align-items:center;gap:7px;padding:7px 13px;border-radius:99px;
+      background:rgba(255,255,255,.75);border:1px solid var(--line);
+      font-size:11.5px;font-weight:700;color:#5D6A62
+    }
+    .pill b{color:var(--green);font-weight:900}
+    .pill.gold{background:var(--gold-soft);border-color:rgba(217,155,38,.28);color:#8A6314}
+
+    /* today's expression */
+    .daily{
+      background:var(--card);border:1px solid var(--line);border-radius:20px;
+      padding:15px 16px 14px;box-shadow:var(--shadow-soft);position:relative;overflow:hidden
+    }
+    .daily::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--gold),var(--coral))}
+    .daily-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px}
+    .daily-label{font-size:10px;font-weight:800;letter-spacing:.16em;color:var(--gold);text-transform:uppercase}
+    .daily-line{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:5px}
+    .daily-hanzi{font-family:"Noto Sans SC",sans-serif;font-size:25px;font-weight:700;letter-spacing:.01em;line-height:1.3}
+    .daily-pinyin{font-size:12.5px;color:var(--green);font-weight:700;letter-spacing:.02em}
+    .daily-mean{font-size:13px;font-weight:700;color:#3D4A43}
+    .daily-mean::before{content:"—";margin-right:7px;color:#C3CABF}
+    .daily-ex{margin:0;font-size:12px;color:var(--muted);line-height:1.65}
+    .daily-ex span{font-family:"Noto Sans SC",sans-serif;color:#43524A;font-weight:500;margin-right:6px}
+
+    /* ── quiz card ── */
+    .quiz-card{
+      background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+      box-shadow:var(--shadow);padding:24px 26px 20px;position:relative;overflow:hidden;min-height:470px
+    }
+    .quiz-card::after{
+      content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+      background:linear-gradient(180deg,rgba(232,241,236,.5),rgba(232,241,236,0) 22%)
+    }
+    .quiz-view{position:relative;z-index:1}
+    .quiz-view.hidden,.completion{display:none}
+    .completion.show{display:block;position:relative;z-index:1;animation:rise .45s cubic-bezier(.2,.8,.3,1) both}
+    @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+    .quiz-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:13px}
+    .counter{display:flex;align-items:baseline;gap:3px;font-size:12.5px;color:var(--muted);font-weight:700}
+    .counter strong{font-size:22px;color:var(--ink);font-weight:900;letter-spacing:-.03em;line-height:1}
+    .counter em{font-style:normal;font-size:12px;margin-left:4px}
+    .quiz-meta{display:flex;align-items:center;gap:7px}
+    .score{
+      display:inline-flex;align-items:center;gap:6px;padding:6px 11px;border-radius:11px;
+      background:var(--gold-soft);color:#8A6314;font-size:11.5px;font-weight:800;border:1px solid rgba(217,155,38,.22)
+    }
+    .score b{font-size:14px;color:#6E4D0C;font-weight:900}
+    .score .star{color:var(--gold);font-size:12px}
+    .combo{
+      display:inline-flex;align-items:center;gap:4px;padding:6px 10px;border-radius:11px;
+      background:linear-gradient(135deg,#FBEBE5,#FBF1DC);color:#B14C34;font-size:11.5px;font-weight:900;
+      border:1px solid rgba(224,109,83,.28);animation:comboPop .5s cubic-bezier(.2,1.5,.4,1) both
+    }
+    .combo b{font-size:14px;font-weight:900}
+    @keyframes comboPop{0%{transform:scale(.5) rotate(-6deg);opacity:0}60%{transform:scale(1.12)}100%{transform:scale(1);opacity:1}}
+
+    .progress{height:6px;border-radius:99px;background:#ECE7DB;overflow:hidden}
+    .progress-fill{
+      height:100%;width:0;border-radius:99px;
+      background:linear-gradient(90deg,var(--green),#3E9478 70%,var(--gold));
+      transition:width .45s cubic-bezier(.3,.9,.3,1)
+    }
+    .progress-text{display:flex;justify-content:space-between;font-size:10.5px;color:#A0A99F;font-weight:700;margin-top:6px;letter-spacing:.01em}
+
+    .question-area{margin:22px 0 18px;text-align:center}
+    .question-kicker{
+      display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:800;color:#8F9A91;
+      letter-spacing:.02em;margin-bottom:12px
+    }
+    .question-kicker::before,.question-kicker::after{content:"";width:16px;height:1px;background:#D9D3C4}
+    .chinese-row{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+    .chinese{
+      font-family:"Noto Sans SC","Noto Sans KR",sans-serif;font-weight:900;
+      font-size:clamp(42px,5.4vw,60px);line-height:1.2;letter-spacing:.01em;color:#16342A;
+      text-shadow:0 1px 0 #fff
+    }
+    .pinyin{
+      margin-top:8px;font-size:15px;font-weight:700;color:var(--green);letter-spacing:.06em;
+      font-feature-settings:"kern"
+    }
+    .speak{
+      display:inline-flex;align-items:center;gap:5px;padding:7px 11px;border-radius:99px;
+      background:var(--green-soft);border:1px solid rgba(31,110,88,.22);color:var(--green);
+      font-size:11.5px;font-weight:800;cursor:pointer;transition:transform .15s,box-shadow .2s,background .2s;
+      white-space:nowrap;-webkit-tap-highlight-color:transparent
+    }
+    .speak:hover{transform:translateY(-1px);box-shadow:0 8px 16px -10px rgba(31,110,88,.7);background:#E1EEE7}
+    .speak:active{transform:translateY(0) scale(.97)}
+    .speak:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+    .speak.speaking{background:var(--green);color:#fff;border-color:var(--green)}
+    .speak.speaking .wave{animation:pulse 1s infinite}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+    .speak.mini{padding:5px 9px;font-size:11px}
+
+    /* answers */
+    .answers{display:grid;gap:9px}
+    .answer{
+      display:flex;align-items:center;gap:11px;width:100%;min-height:54px;
+      padding:11px 14px;border-radius:15px;border:1.5px solid #E9E3D6;background:#fff;
+      text-align:left;cursor:pointer;font-size:14.5px;font-weight:600;color:#2C3A33;line-height:1.4;
+      transition:border-color .18s,background .18s,transform .14s,box-shadow .18s;
+      -webkit-tap-highlight-color:transparent
+    }
+    .answer .letter{
+      flex:none;display:grid;place-items:center;width:25px;height:25px;border-radius:8px;
+      background:#F4F0E6;color:#8A8574;font-size:11px;font-weight:900;transition:all .18s
+    }
+    .answer .answer-text{flex:1 1 auto}
+    .answer:hover:not(:disabled){border-color:rgba(31,110,88,.45);background:#FDFBF6;transform:translateY(-1px);box-shadow:0 10px 22px -18px rgba(31,110,88,.8)}
+    .answer:hover:not(:disabled) .letter{background:var(--green-soft);color:var(--green)}
+    .answer:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+    .answer:disabled{cursor:default}
+    .answer.correct{border-color:var(--green);background:linear-gradient(180deg,#EAF4EE,#E2EFE8);color:#134A3A;box-shadow:0 12px 24px -20px rgba(31,110,88,.9)}
+    .answer.correct .letter{background:var(--green);color:#fff}
+    .answer.correct::after{content:"✓";margin-left:auto;color:var(--green);font-weight:900;font-size:16px}
+    .answer.wrong{border-color:rgba(224,109,83,.6);background:var(--coral-soft);color:#8E3F2C;animation:shake .38s}
+    .answer.wrong .letter{background:var(--coral);color:#fff}
+    .answer.wrong::after{content:"✕";margin-left:auto;color:var(--coral);font-weight:900;font-size:15px}
+    @keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}45%{transform:translateX(5px)}70%{transform:translateX(-3px)}}
+    .answer.dim{opacity:.5}
+
+    /* feedback */
+    .feedback{
+      display:none;margin-top:12px;padding:13px 15px;border-radius:15px;
+      border:1px solid transparent;font-size:12.5px;line-height:1.65;color:#43524A
+    }
+    .feedback.show{display:block;animation:rise .3s ease both}
+    .feedback strong{display:block;font-size:13px;font-weight:900;margin-bottom:3px;letter-spacing:-.01em}
+    .feedback.good{background:linear-gradient(180deg,#EFF7F1,#E8F2EC);border-color:rgba(31,110,88,.2)}
+    .feedback.good strong{color:var(--green-deep)}
+    .feedback.bad{background:linear-gradient(180deg,#FDF1EC,#FBEBE5);border-color:rgba(224,109,83,.22)}
+    .feedback.bad strong{color:#B14C34}
+    .feedback-actions{margin-top:11px}
+    .feedback-actions.hidden{display:none}
+
+    .primary,.secondary{
+      display:inline-flex;align-items:center;justify-content:center;gap:7px;width:100%;
+      min-height:50px;padding:12px 18px;border-radius:14px;border:1px solid transparent;
+      font-size:14.5px;font-weight:900;letter-spacing:-.01em;cursor:pointer;
+      transition:transform .15s,box-shadow .2s,filter .2s;-webkit-tap-highlight-color:transparent
+    }
+    .primary{
+      background:linear-gradient(135deg,var(--green) 0%,var(--green-deep) 100%);color:#fff;
+      box-shadow:0 14px 26px -16px rgba(20,80,63,.9)
+    }
+    .primary:hover{transform:translateY(-1px);filter:brightness(1.06)}
+    .primary:active{transform:translateY(0) scale(.995)}
+    .secondary{background:#fff;border-color:#E2DCCD;color:#3D4A43}
+    .secondary:hover{background:#FBF8F1;border-color:#CFC6B2}
+    .primary:focus-visible,.secondary:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+
+    .quiz-foot{
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      margin-top:14px;padding-top:12px;border-top:1px dashed #E7E1D3
+    }
+    .tip{font-size:11.5px;color:#939D94;font-weight:600;line-height:1.5}
+    .ghost-link{
+      flex:none;background:none;border:0;padding:4px 2px;font-size:11.5px;font-weight:800;
+      color:#9A9484;cursor:pointer;text-decoration:underline;text-underline-offset:3px
+    }
+    .ghost-link:hover{color:var(--green)}
+
+    /* celebration character */
+    .pop{
+      position:absolute;right:14px;top:52px;z-index:6;display:flex;align-items:flex-end;gap:6px;
+      pointer-events:none;opacity:0
+    }
+    .pop.on{animation:popIn 1.5s cubic-bezier(.2,1.4,.4,1) both}
+    @keyframes popIn{
+      0%{opacity:0;transform:translateY(14px) scale(.6) rotate(-8deg)}
+      22%{opacity:1;transform:translateY(0) scale(1.06) rotate(3deg)}
+      36%{transform:translateY(-4px) scale(1) rotate(-2deg)}
+      80%{opacity:1;transform:translateY(0) scale(1) rotate(0)}
+      100%{opacity:0;transform:translateY(-10px) scale(.96)}
+    }
+    .pop-bubble{
+      background:#fff;border:1.5px solid var(--green);color:var(--green-deep);
+      padding:5px 10px;border-radius:12px 12px 12px 3px;font-size:11.5px;font-weight:900;white-space:nowrap;
+      box-shadow:0 8px 18px -12px rgba(31,110,88,.8);margin-bottom:26px
+    }
+    .pop-char{width:56px;height:56px;display:block;filter:drop-shadow(0 8px 12px rgba(20,80,63,.18))}
+
+    #confetti{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:60}
+
+    /* completion */
+    .done-head{text-align:center;margin-bottom:16px}
+    .done-eyebrow{font-size:10px;font-weight:800;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-bottom:8px}
+    .done-char{width:82px;height:82px;margin:0 auto 10px;display:block;animation:bob 3s ease-in-out infinite}
+    @keyframes bob{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-6px) rotate(1.5deg)}}
+    .completion h2{
+      font-family:"Noto Serif KR",serif;font-size:clamp(23px,2.6vw,29px);font-weight:700;
+      letter-spacing:-.04em;margin:0 0 8px;line-height:1.3
+    }
+    .completion .done-copy{margin:0 auto;max-width:36ch;font-size:12.8px;color:#63706A;line-height:1.7}
+    .result-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0 16px}
+    .result-box{
+      background:linear-gradient(180deg,#F7F3E9,#F3EEE1);border:1px solid #E9E2D2;border-radius:16px;
+      padding:13px 12px;text-align:center
+    }
+    .result-box span{display:block;font-size:10.5px;font-weight:800;letter-spacing:.06em;color:#9A9179;margin-bottom:3px}
+    .result-box b{font-size:21px;font-weight:900;letter-spacing:-.03em;color:var(--green-deep)}
+    .result-box b small{font-size:12px;font-weight:800;color:#7C877F;letter-spacing:0}
+    .done-actions{display:grid;gap:9px}
+    .done-actions .hidden{display:none}
+
+    /* market */
+    .market{
+      margin-top:18px;padding:15px;border-radius:18px;position:relative;overflow:hidden;
+      background:linear-gradient(135deg,#1F6E58 0%,#14503F 62%,#123F32 100%);
+      box-shadow:0 20px 38px -26px rgba(20,80,63,1)
+    }
+    .market::before{
+      content:"";position:absolute;width:150px;height:150px;right:-40px;top:-60px;border-radius:50%;
+      background:radial-gradient(circle,rgba(217,155,38,.42),rgba(217,155,38,0) 68%)
+    }
+    .market-head{position:relative;display:flex;align-items:center;gap:7px;margin-bottom:10px;padding-left:2px}
+    .market-head span{font-size:10px;font-weight:800;letter-spacing:.16em;color:#E9D9B0;text-transform:uppercase}
+    .market a.market-btn{
+      position:relative;display:flex;align-items:center;justify-content:center;gap:8px;
+      min-height:50px;padding:13px 16px;border-radius:13px;text-decoration:none;
+      background:linear-gradient(180deg,#FFFDF7,#F7F0DF);color:#14503F;
+      font-size:15px;font-weight:900;letter-spacing:-.02em;
+      box-shadow:0 12px 22px -16px rgba(0,0,0,.7),inset 0 0 0 1px rgba(217,155,38,.5);
+      transition:transform .15s,box-shadow .2s
+    }
+    .market a.market-btn:hover{transform:translateY(-1px);box-shadow:0 16px 26px -14px rgba(0,0,0,.65),inset 0 0 0 1px rgba(217,155,38,.85)}
+    .market a.market-btn:active{transform:translateY(0) scale(.995)}
+    .market a.market-btn:focus-visible{outline:2px solid #fff;outline-offset:3px}
+    .market p{position:relative;margin:9px 0 0;text-align:center;font-size:11.5px;color:#CFE0D6;line-height:1.6}
+
+    /* footer */
+    .site-foot{
+      margin-top:30px;padding-top:18px;border-top:1px solid #E8E2D4;
+      display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px
+    }
+    .foot-brand{display:flex;align-items:center;gap:9px}
+    .foot-mark{
+      display:grid;place-items:center;width:26px;height:26px;border-radius:8px;
+      background:var(--green-soft);color:var(--green);font-family:"Noto Sans SC",sans-serif;
+      font-weight:700;font-size:13px;border:1px solid rgba(31,110,88,.18)
+    }
+    .foot-brand b{font-size:12.5px;font-weight:900;letter-spacing:-.01em;display:block;line-height:1.3}
+    .foot-brand small{font-size:10.5px;color:#A0A99F;font-weight:600}
+    .foot-links{display:flex;flex-wrap:wrap;gap:6px}
+    .foot-links a{
+      font-size:11.5px;font-weight:800;color:#5F6C64;text-decoration:none;
+      padding:6px 11px;border-radius:99px;border:1px solid #E5DFD1;background:rgba(255,255,255,.6);
+      transition:all .18s
+    }
+    .foot-links a:hover{color:var(--green);border-color:rgba(31,110,88,.35);background:#fff}
+    .foot-note{width:100%;margin:0;font-size:10.5px;color:#A8AFA6;font-weight:600}
+
+    /* toast */
+    .toast{
+      position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);
+      max-width:min(92vw,420px);padding:11px 16px;border-radius:13px;
+      background:rgba(27,42,36,.95);color:#F7F3E8;font-size:12.5px;font-weight:700;line-height:1.5;
+      box-shadow:0 18px 34px -18px rgba(0,0,0,.6);opacity:0;pointer-events:none;
+      transition:opacity .25s,transform .25s;z-index:70;text-align:center
+    }
+    .toast.show{opacity:1;transform:translate(-50%,0)}
+
+    /* ══════════ 베이징 저녁 3D 배경 ══════════ */
+    body{background:#0B211E}
+    .page{position:relative;z-index:1}
+    #beijing-scene{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;contain:layout paint}
+    #beijing-scene .sky{
+      position:absolute;inset:0;
+      background:
+        radial-gradient(118% 40% at 50% 66%, rgba(255,212,150,.72) 0%, rgba(255,163,94,.26) 38%, rgba(255,150,80,0) 68%),
+        linear-gradient(180deg,#051110 0%,#091F1B 11%,#0F2E2A 21%,#173D36 30%,#2C463C 39%,#4F4531 47%,#7F4E2E 54%,#B36C38 60%,#DD9350 65%,#F3C489 70%,#F8DDB2 73%,#C58C55 76%,#7A5433 79%,#43301F 83%,#241D15 88%,#141310 94%,#0C100E 100%)
+    }
+    #beijing-scene .sun{
+      position:absolute;left:50%;top:67%;width:min(58vw,660px);aspect-ratio:1;transform:translate(-50%,-50%);
+      border-radius:50%;filter:blur(6px);
+      background:radial-gradient(circle, rgba(255,244,212,.9) 0%, rgba(255,199,124,.46) 22%, rgba(255,153,83,.2) 44%, rgba(255,140,70,0) 70%)
+    }
+    #beijing-scene .haze{
+      position:absolute;left:0;right:0;top:57%;height:19%;
+      background:linear-gradient(180deg, rgba(255,186,116,0) 0%, rgba(255,196,140,.26) 48%, rgba(255,206,150,.10) 76%, rgba(255,214,164,0) 100%)
+    }
+    #beijing-scene canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+    #beijing-scene .vignette{position:absolute;inset:0;background:radial-gradient(125% 92% at 50% 42%, rgba(0,0,0,0) 44%, rgba(3,14,12,.46) 100%)}
+    #beijing-scene .grain{
+      position:absolute;inset:0;opacity:.20;mix-blend-mode:overlay;
+      background-image:radial-gradient(rgba(255,255,255,.5) .5px, rgba(255,255,255,0) .7px);
+      background-size:3px 3px
+    }
+
+    /* CSS 3D 폴백 실루엣 (WebGL 미지원 시에만 보임) */
+    #beijing-scene .fallback{position:absolute;inset:0;perspective:1000px;perspective-origin:50% 72%}
+    body.webgl #beijing-scene .fallback{display:none}
+    .fb-layer{position:absolute;left:0;bottom:0;width:100%;height:min(76vh,800px);will-change:transform}
+    .fb-layer svg{display:block;width:100%;height:100%}
+    .fb-lanterns{position:absolute;inset:0}
+    .fb-lantern{
+      position:absolute;width:26px;height:34px;border-radius:50% 50% 46% 46%/48% 48% 52% 52%;
+      background:radial-gradient(circle at 36% 30%,#FFE0B2,#E8503A 44%,#A8231A 78%,#6C1610 100%);
+      box-shadow:0 0 26px 7px rgba(255,110,60,.4), 0 0 68px 22px rgba(255,120,60,.16);
+      animation:lantFloat 8s ease-in-out infinite;opacity:.92
+    }
+    .fb-lantern::after{content:"";position:absolute;left:50%;top:100%;width:2px;height:13px;transform:translateX(-50%);background:linear-gradient(#E7B25A,rgba(231,178,90,0))}
+    @keyframes lantFloat{0%,100%{transform:translate3d(0,0,0) rotate(-3deg)}50%{transform:translate3d(6px,-18px,0) rotate(3deg)}}
+
+    /* ══════════ 한지 패널 — 가독성 유지 ══════════ */
+    .topbar,.site-foot{
+      background:linear-gradient(180deg,rgba(255,253,248,.95),rgba(249,244,234,.91));
+      border:1px solid rgba(255,255,255,.55);
+      box-shadow:0 26px 48px -36px rgba(0,0,0,.9);
+      -webkit-backdrop-filter:blur(12px) saturate(1.05);
+      backdrop-filter:blur(12px) saturate(1.05)
+    }
+    .topbar{padding:11px 15px;border-radius:18px;margin-bottom:22px}
+    .intro{
+      padding:22px 22px 20px;border-radius:26px;
+      background:linear-gradient(180deg,rgba(251,247,238,.94),rgba(245,238,224,.91));
+      border:1px solid rgba(255,255,255,.5);
+      box-shadow:0 44px 74px -56px rgba(0,0,0,.95), inset 0 0 0 1px rgba(217,155,38,.10);
+      -webkit-backdrop-filter:blur(16px) saturate(1.06);
+      backdrop-filter:blur(16px) saturate(1.06)
+    }
+    .site-foot{border-radius:20px;padding:16px 18px;margin-top:32px;border-top:1px solid rgba(255,255,255,.55)}
+
+    /* ══════════ 3D 입체 퀴즈 카드 ══════════ */
+    .card-stage{perspective:1500px;perspective-origin:50% 38%;position:relative}
+    .card-tilt{transform-style:preserve-3d;transform:rotateX(0deg) rotateY(0deg);will-change:transform;transition:transform .6s cubic-bezier(.22,.8,.28,1)}
+    .card-stage.tilting .card-tilt{transition:transform .1s linear}
+    .card-inner{position:relative;transform-style:preserve-3d;transform-origin:50% 48% 0;will-change:transform,opacity}
+    .quiz-card{
+      background:linear-gradient(180deg,rgba(255,253,250,.975) 0%,rgba(252,247,238,.96) 56%,rgba(250,244,232,.955) 100%);
+      border:1px solid rgba(255,255,255,.72);
+      box-shadow:0 64px 96px -64px rgba(0,0,0,.98), 0 26px 48px -38px rgba(0,0,0,.72), inset 0 0 0 1px rgba(217,155,38,.10)
+    }
+    .card-sheen{
+      position:absolute;inset:0;border-radius:var(--radius);pointer-events:none;z-index:0;opacity:0;
+      background:radial-gradient(440px 320px at var(--sx,50%) var(--sy,0%), rgba(255,255,255,.55), rgba(255,247,232,.18) 42%, rgba(255,255,255,0) 68%);
+      transition:opacity .45s ease
+    }
+    .card-stage.tilting .card-sheen{opacity:.75}
+
+    /* 입체감 있는 버튼 눌림 */
+    .answer:active:not(:disabled){
+      transform:translateY(2px) scale(.992);
+      box-shadow:inset 0 3px 7px rgba(27,42,36,.16), inset 0 -1px 0 rgba(255,255,255,.65);
+      border-color:rgba(31,110,88,.42)
+    }
+    .primary:active,.secondary:active{
+      transform:translateY(2px) scale(.994);
+      box-shadow:inset 0 4px 10px rgba(0,0,0,.3), 0 6px 12px -10px rgba(0,0,0,.6)
+    }
+    .market a.market-btn:active{transform:translateY(2px) scale(.994);box-shadow:inset 0 4px 10px rgba(0,0,0,.42)}
+    .pop-bubble{animation:none}
+
+    @supports not ((backdrop-filter:blur(2px)) or (-webkit-backdrop-filter:blur(2px))){
+      .intro{background:rgba(251,247,238,.985)}
+      .topbar,.site-foot{background:rgba(252,248,240,.985)}
+    }
+
+    /* ── mobile ── */
+    @media (max-width:900px){
+      .layout{grid-template-columns:1fr;gap:18px}
+      .intro{position:static}
+      .lede{max-width:none}
+      .page{padding:16px 16px 30px}
+    }
+    @media (max-width:900px){
+      .intro{padding:16px 16px 14px;border-radius:22px}
+      .card-stage{perspective:1100px}
+      .site-foot{margin-top:22px}
+    }
+    @media (max-width:640px){
+      .topbar{padding:8px 11px;border-radius:15px;margin-bottom:12px}
+      .intro{padding:14px 14px 12px;border-radius:20px}
+      .quiz-card{border-radius:20px}
+      .card-sheen{display:none}
+      .site-foot{border-radius:16px;padding:13px 13px;margin-top:20px}
+      .fb-layer{height:min(62vh,520px)}
+    }
+    @media (max-width:640px){
+      .page{padding:12px 13px 26px}
+      .topbar{margin-bottom:14px}
+      .brandmark{width:34px;height:34px;border-radius:11px;font-size:16px}
+      .brand-name b{font-size:13px}
+      .brand-name span{font-size:10px}
+      .top-note{font-size:10.5px;padding:6px 10px}
+      .eyebrow{font-size:9.5px;margin-bottom:8px}
+      .eyebrow::before{width:16px}
+      h1{font-size:24px;line-height:1.3;margin-bottom:8px;letter-spacing:-.04em}
+      .lede{display:none}
+      .hero-tags{margin-bottom:12px;gap:6px}
+      .pill{padding:5px 10px;font-size:10.5px}
+      .daily{padding:11px 12px 10px;border-radius:16px;margin-bottom:0}
+      .daily-label{font-size:9px}
+      .daily-hanzi{font-size:21px}
+      .daily-pinyin{font-size:11.5px}
+      .daily-mean{font-size:12px}
+      .daily-ex{display:none}
+      .quiz-card{padding:16px 14px 14px;border-radius:20px;min-height:0}
+      .quiz-top{margin-bottom:10px}
+      .counter strong{font-size:19px}
+      .counter{font-size:11.5px}
+      .score{padding:5px 9px;font-size:10.5px;border-radius:9px}
+      .score b{font-size:12.5px}
+      .combo{padding:5px 8px;font-size:10.5px;border-radius:9px}
+      .combo b{font-size:12.5px}
+      .progress{height:5px}
+      .progress-text{font-size:9.5px;margin-top:4px}
+      .question-area{margin:13px 0 12px}
+      .question-kicker{font-size:10px;margin-bottom:7px}
+      .question-kicker::before,.question-kicker::after{width:10px}
+      .chinese-row{gap:8px}
+      .chinese{font-size:clamp(34px,10vw,44px)}
+      .pinyin{font-size:13px;margin-top:5px}
+      .speak{padding:6px 9px;font-size:10.5px}
+      .answers{gap:7px}
+      .answer{min-height:47px;padding:9px 11px;font-size:13.5px;border-radius:12px;gap:9px}
+      .answer .letter{width:22px;height:22px;border-radius:7px;font-size:10px}
+      .feedback{margin-top:9px;padding:10px 12px;font-size:11.5px;line-height:1.6;border-radius:12px}
+      .feedback strong{font-size:12px}
+      .feedback-actions{margin-top:8px}
+      .primary,.secondary{min-height:44px;font-size:13.5px;border-radius:12px;padding:10px 14px}
+      .quiz-foot{margin-top:10px;padding-top:9px}
+      .tip{font-size:10px}
+      .ghost-link{font-size:10px}
+      .pop{top:38px;right:6px}
+      .pop-char{width:44px;height:44px}
+      .pop-bubble{font-size:10.5px;padding:4px 8px;margin-bottom:20px}
+      .done-char{width:64px;height:64px}
+      .completion h2{font-size:21px}
+      .completion .done-copy{font-size:12px}
+      .result-row{gap:8px;margin:13px 0 12px}
+      .result-box{padding:10px 8px;border-radius:13px}
+      .result-box b{font-size:18px}
+      .market{margin-top:13px;padding:12px;border-radius:15px}
+      .market a.market-btn{min-height:46px;font-size:13.5px;border-radius:11px;padding:11px 12px}
+      .market p{font-size:10.5px;margin-top:7px}
+      .site-foot{margin-top:20px;padding-top:14px;gap:10px}
+      .foot-note{font-size:9.5px}
+    }
+    @media (max-width:640px) and (max-height:760px){
+      h1{font-size:21px}
+      .hero-tags{margin-bottom:9px}
+      .daily{padding:9px 11px 8px}
+      .question-area{margin:10px 0 10px}
+      .answer{min-height:44px;padding:8px 10px}
+      .quiz-card{padding:13px 12px 12px}
+    }
+    @media (max-width:380px){
+      .answer{font-size:12.8px;min-height:44px}
+      .chinese{font-size:32px}
+    }
+    @media (prefers-reduced-motion:reduce){
+      *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+      html{scroll-behavior:auto}
+    }
+  </style>
+</head>
+<body>
+  <div id="beijing-scene" aria-hidden="true">
+    <div class="sky"></div>
+    <div class="sun"></div>
+    <div class="haze"></div>
+
+    <div class="fallback" id="fallback-scene">
+      <div class="fb-layer fb-far">
+        <svg viewBox="0 0 1200 420" preserveAspectRatio="xMidYMax slice">
+          <path fill="#22392F" d="M0,420 L0,306 C66,276 118,214 196,204 C268,195 300,248 360,254 C432,261 462,196 540,188 C622,180 660,246 736,252 C812,258 848,198 928,192 C1012,186 1052,250 1122,256 C1162,260 1184,282 1200,290 L1200,420 Z"/>
+          <path fill="#1B322A" opacity=".75" d="M0,420 L0,340 C120,318 240,330 360,336 C520,344 700,318 860,330 C1000,340 1120,336 1200,344 L1200,420 Z"/>
+        </svg>
+      </div>
+      <div class="fb-layer fb-mid">
+        <svg viewBox="0 0 1200 420" preserveAspectRatio="xMidYMax slice">
+          <g fill="#16302A">
+            <path d="M470,420 L730,420 L716,392 L484,392 Z"/>
+            <path d="M486,392 L714,392 L702,368 L498,368 Z"/>
+            <path d="M556,368 L644,368 L638,306 L562,306 Z"/>
+            <path d="M505,306 Q516,300 528,284 Q560,272 600,270 Q640,272 672,284 Q684,300 695,306 Q600,318 505,306 Z"/>
+            <path d="M573,270 L627,270 L624,240 L576,240 Z"/>
+            <path d="M534,240 Q544,234 552,220 Q576,210 600,209 Q624,210 648,220 Q656,234 666,240 Q600,250 534,240 Z"/>
+            <path d="M584,209 L616,209 L614,188 L586,188 Z"/>
+            <path d="M560,188 Q568,183 574,173 Q588,166 600,165 Q612,166 626,173 Q632,183 640,188 Q600,195 560,188 Z"/>
+            <path d="M597,165 L603,165 L602,150 L598,150 Z"/>
+            <circle cx="600" cy="146" r="4.5"/>
+          </g>
+        </svg>
+      </div>
+      <div class="fb-layer fb-near">
+        <svg viewBox="0 0 1200 420" preserveAspectRatio="xMidYMax slice">
+          <defs>
+            <g id="fbGate" fill="#0D201D">
+              <path d="M-46,0 L46,0 L46,-34 L-46,-34 Z"/>
+              <path d="M-30,-34 L30,-34 L30,-62 L-30,-62 Z"/>
+              <path d="M-42,-62 Q-36,-66 -32,-76 Q-16,-88 0,-90 Q16,-88 32,-76 Q36,-66 42,-62 Q0,-55 -42,-62 Z"/>
+              <path d="M-22,-90 L22,-90 L22,-104 L-22,-104 Z"/>
+              <path d="M-32,-104 Q-27,-108 -24,-115 Q-12,-123 0,-124 Q12,-123 24,-115 Q27,-108 32,-104 Q0,-98 -32,-104 Z"/>
+            </g>
+          </defs>
+          <path fill="#0D201D" d="M0,420 L0,360 L1200,360 L1200,420 Z"/>
+          <g transform="translate(150,360) scale(.62)"><use href="#fbGate"/></g>
+          <g transform="translate(600,356) scale(1)"><use href="#fbGate"/></g>
+          <g transform="translate(1050,360) scale(.62)"><use href="#fbGate"/></g>
+        </svg>
+      </div>
+      <div class="fb-lanterns" id="fb-lanterns">
+        <span class="fb-lantern" style="left:12%;top:26%;animation-delay:-1s"></span>
+        <span class="fb-lantern" style="left:76%;top:18%;width:20px;height:26px;animation-delay:-3s"></span>
+        <span class="fb-lantern" style="left:48%;top:12%;width:16px;height:21px;animation-delay:-5s"></span>
+        <span class="fb-lantern" style="left:88%;top:38%;animation-delay:-2s"></span>
+        <span class="fb-lantern" style="left:26%;top:8%;width:14px;height:19px;animation-delay:-6s"></span>
+        <span class="fb-lantern" style="left:62%;top:34%;width:18px;height:24px;animation-delay:-4s"></span>
+      </div>
+    </div>
+
+    <div class="vignette"></div>
+    <div class="grain"></div>
+  </div>
+
+  <div class="page">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brandmark" aria-hidden="true">金</span>
+        <span class="brand-name"><b>금란지교</b><span>중국어 한입 퀴즈</span></span>
+      </div>
+      <span class="top-note"><i aria-hidden="true"></i>매일 5분 · 초급 업무 표현</span>
+    </header>
+
+    <div class="layout">
+      <div class="intro">
+        <div class="eyebrow">Chinese for work</div>
+        <h1>업무 중국어,<br />가볍게 <em>한 문제</em>부터</h1>
+        <p class="lede">초급 직장인을 위한 실전 표현 퀴즈예요. 발음 듣기로 귀를 열고, 틀린 문제는 한 번 더 — 오늘의 표현이 내 것이 됩니다.</p>
+        <div class="hero-tags">
+          <span class="pill"><b>10</b>문제</span>
+          <span class="pill">초급 · 업무 표현</span>
+          <span class="pill gold">🔊 발음 듣기</span>
+        </div>
+
+        <section class="daily" aria-label="오늘의 표현">
+          <div class="daily-head">
+            <span class="daily-label">오늘의 표현</span>
+            <button class="speak mini" type="button" data-speak="开会" aria-label="开会 발음 듣기">🔊 <span class="wave">듣기</span></button>
+          </div>
+          <div class="daily-line">
+            <span class="daily-hanzi" lang="zh-CN">开会</span>
+            <span class="daily-pinyin">kāi huì</span>
+            <span class="daily-mean">회의를 하다</span>
+          </div>
+          <p class="daily-ex"><span lang="zh-CN">我们九点开会。</span>우리 9시에 회의해요.</p>
+        </section>
+      </div>
+
+      <div class="card-stage" id="card-stage">
+        <div class="card-tilt" id="card-tilt">
+        <div class="card-inner" id="card-inner">
+      <section class="quiz-card" aria-label="중국어 퀴즈">
+        <span class="card-sheen" id="card-sheen" aria-hidden="true"></span>
+        <div class="pop" id="pop" aria-hidden="true">
+          <span class="pop-bubble" id="pop-bubble">잘했어요!</span>
+          <svg class="pop-char" viewBox="0 0 120 120" role="img" aria-hidden="true">
+            <ellipse cx="60" cy="110" rx="24" ry="4.5" fill="#1F6E58" opacity=".12"/>
+            <path d="M60 32c0-9 1-13 1-18" stroke="#1F6E58" stroke-width="4" stroke-linecap="round" fill="none"/>
+            <ellipse cx="50" cy="16" rx="10" ry="6" fill="#1F6E58" transform="rotate(-22 50 16)"/>
+            <ellipse cx="71" cy="13" rx="10" ry="6" fill="#5AA98C" transform="rotate(22 71 13)"/>
+            <circle cx="60" cy="64" r="32" fill="#1F6E58"/>
+            <circle cx="60" cy="64" r="32" fill="none" stroke="#14503F" stroke-width="1.5" opacity=".5"/>
+            <circle cx="49" cy="61" r="4.4" fill="#FAF8F3"/><circle cx="71" cy="61" r="4.4" fill="#FAF8F3"/>
+            <circle cx="49.8" cy="62" r="2" fill="#123F32"/><circle cx="71.8" cy="62" r="2" fill="#123F32"/>
+            <ellipse cx="41" cy="71" rx="5.5" ry="3.6" fill="#E06D53" opacity=".5"/>
+            <ellipse cx="79" cy="71" rx="5.5" ry="3.6" fill="#E06D53" opacity=".5"/>
+            <path d="M54 72q6 6.5 12 0" stroke="#FAF8F3" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <div class="quiz-view" id="quiz-view">
+          <div class="quiz-top">
+            <div class="counter"><strong id="question-number">1</strong><span>/</span><span id="question-total">10</span><em>문항</em></div>
+            <div class="quiz-meta">
+              <span class="combo" id="combo" hidden><span aria-hidden="true">🔥</span><b id="combo-count">2</b>연속</span>
+              <span class="score"><span class="star" aria-hidden="true">✦</span>점수 <b id="score">0</b></span>
+            </div>
+          </div>
+          <div class="progress" role="progressbar" aria-label="퀴즈 진행률" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+          <div class="progress-text"><span>오늘의 학습 진행률</span><span id="progress-text">0%</span></div>
+
+          <div class="question-area">
+            <div class="question-kicker" id="question-kicker">이 중국어 표현의 뜻은?</div>
+            <div class="chinese-row">
+              <div class="chinese" id="prompt" lang="zh-CN"></div>
+              <button class="speak" id="speak-btn" type="button">🔊 <span class="wave">발음 듣기</span></button>
+            </div>
+            <div class="pinyin" id="pinyin"></div>
+          </div>
+
+          <div class="answers" id="answers" role="group" aria-label="정답 보기"></div>
+          <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+          <div class="feedback-actions hidden" id="feedback-actions">
+            <button class="primary" id="action-button" type="button"></button>
+          </div>
+
+          <div class="quiz-foot">
+            <span class="tip" id="tip">💡 천천히 읽고 가장 알맞은 뜻을 골라보세요</span>
+            <button class="ghost-link" id="restart" type="button">처음부터</button>
+          </div>
+        </div>
+
+        <div class="completion" id="completion" aria-live="polite">
+          <div class="done-head">
+            <div class="done-eyebrow">Quiz complete</div>
+            <svg class="done-char" viewBox="0 0 120 120" role="img" aria-label="축하하는 캐릭터">
+              <ellipse cx="60" cy="110" rx="24" ry="4.5" fill="#1F6E58" opacity=".12"/>
+              <path d="M60 32c0-9 1-13 1-18" stroke="#1F6E58" stroke-width="4" stroke-linecap="round" fill="none"/>
+              <ellipse cx="50" cy="16" rx="10" ry="6" fill="#1F6E58" transform="rotate(-22 50 16)"/>
+              <ellipse cx="71" cy="13" rx="10" ry="6" fill="#5AA98C" transform="rotate(22 71 13)"/>
+              <circle cx="60" cy="64" r="32" fill="#1F6E58"/>
+              <circle cx="49" cy="60" r="4.4" fill="#FAF8F3"/><circle cx="71" cy="60" r="4.4" fill="#FAF8F3"/>
+              <circle cx="49.8" cy="61" r="2" fill="#123F32"/><circle cx="71.8" cy="61" r="2" fill="#123F32"/>
+              <ellipse cx="41" cy="70" rx="5.5" ry="3.6" fill="#E06D53" opacity=".5"/>
+              <ellipse cx="79" cy="70" rx="5.5" ry="3.6" fill="#E06D53" opacity=".5"/>
+              <path d="M53 71q7 7 14 0" stroke="#FAF8F3" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <path d="M96 40l2.5 6 6 2.5-6 2.5-2.5 6-2.5-6-6-2.5 6-2.5z" fill="#D99B26"/>
+            </svg>
+            <h2 id="complete-title">오늘의 퀴즈 완료!</h2>
+            <p class="done-copy" id="complete-copy"></p>
+          </div>
+          <div class="result-row">
+            <div class="result-box"><span>내 점수</span><b id="final-score">0 <small>/ 10점</small></b></div>
+            <div class="result-box"><span>최고 연속 정답</span><b id="best-streak">0 <small>연속</small></b></div>
+          </div>
+          <div class="done-actions">
+            <button class="primary" id="review-wrong" type="button" hidden>틀린 문제만 다시 풀기</button>
+            <button class="secondary" id="play-again" type="button">새 퀴즈 시작하기</button>
+          </div>
+
+          <div class="market">
+            <div class="market-head"><span>금란지교 market</span></div>
+            <a class="market-btn" href="https://smartstore.naver.com/whrmafks01" target="_blank" rel="noopener">🛍️ 금란지교 마켓 구경하기</a>
+            <p>퀴즈 푼 김에, 생활에 필요한 물건도 둘러보세요.</p>
+          </div>
+        </div>
+      </section>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-foot">
+      <div class="foot-brand">
+        <span class="foot-mark" aria-hidden="true">金</span>
+        <span><b>금란지교</b><small>중국어 한입 퀴즈</small></span>
+      </div>
+      <nav class="foot-links" aria-label="금란지교 링크">
+        <a href="https://smartstore.naver.com/whrmafks01" target="_blank" rel="noopener">금란지교 마켓</a>
+        <a href="https://blog.naver.com/geumran01" target="_blank" rel="noopener">금란지교 블로그</a>
+      </nav>
+      <p class="foot-note">매일 10문제, 5분이면 충분해요. © 2026 금란지교</p>
+    </footer>
+  </div>
+
+  <canvas id="confetti" aria-hidden="true"></canvas>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+  const BANK = [
+    {hanzi:'你好',pinyin:'nǐ hǎo',answer:'안녕하세요',choices:['안녕하세요','감사합니다','죄송합니다','안녕히 가세요'],explain:'你好는 처음 만났을 때 쓰는 가장 기본적인 인사예요. 업무 인사에도 자연스럽게 사용할 수 있어요.'},
+    {hanzi:'谢谢',pinyin:'xiè xie',answer:'감사합니다',choices:['실례합니다','감사합니다','괜찮아요','수고하세요'],explain:'谢谢는 “고마워요, 감사합니다”라는 뜻이에요. 도움을 받았을 때 쓰면 좋아요.'},
+    {hanzi:'请问',pinyin:'qǐng wèn',answer:'실례합니다, 여쭤볼게요',choices:['잠시만 기다려 주세요','실례합니다, 여쭤볼게요','다시 말씀해 주세요','회의를 시작할게요'],explain:'请问은 질문을 시작할 때 붙이는 공손한 표현이에요. “실례지만 여쭤볼게요”에 가까워요.'},
+    {hanzi:'我明白了',pinyin:'wǒ míng bai le',answer:'이해했습니다',choices:['잘 모르겠습니다','이해했습니다','곧 도착합니다','잠시만요'],explain:'明白는 “분명히 알다, 이해하다”예요. 설명을 들은 뒤 “이해했습니다”라고 답할 때 써요.'},
+    {hanzi:'请稍等',pinyin:'qǐng shāo děng',answer:'잠시만 기다려 주세요',choices:['잠시만 기다려 주세요','다시 연락 주세요','먼저 가세요','회의에 참석해 주세요'],explain:'稍等은 “잠시 기다리다”라는 뜻이에요. 请을 붙여 정중하게 부탁하는 표현이에요.'},
+    {hanzi:'开会',pinyin:'kāi huì',answer:'회의를 하다',choices:['메일을 보내다','회의를 하다','보고서를 쓰다','전화를 받다'],explain:'开会는 회의를 열거나 회의에 참석한다는 뜻이에요. “我们开会吧”는 “우리 회의합시다”예요.'},
+    {hanzi:'发邮件',pinyin:'fā yóu jiàn',answer:'이메일을 보내다',choices:['이메일을 보내다','전화를 걸다','자료를 인쇄하다','일정을 바꾸다'],explain:'发는 “보내다”, 邮件은 “메일”이에요. 두 단어를 합쳐 이메일을 보낸다는 뜻이 돼요.'},
+    {hanzi:'我马上回复',pinyin:'wǒ mǎ shàng huí fù',answer:'바로 답장하겠습니다',choices:['답장을 기다리겠습니다','바로 답장하겠습니다','다시 확인하겠습니다','오늘은 쉬겠습니다'],explain:'马上은 “곧, 바로”, 回复는 “회신하다, 답하다”예요. 업무 메시지에 자주 쓰여요.'},
+    {hanzi:'几点开始？',pinyin:'jǐ diǎn kāi shǐ?',answer:'몇 시에 시작하나요?',choices:['어디에서 만나나요?','몇 시에 시작하나요?','언제 끝나나요?','누가 참석하나요?'],explain:'几点은 “몇 시”, 开始는 “시작하다”예요. 일정 시작 시간을 물을 때 쓰는 표현이에요.'},
+    {hanzi:'我会准时到',pinyin:'wǒ huì zhǔn shí dào',answer:'제시간에 도착하겠습니다',choices:['제시간에 도착하겠습니다','회의에 참석하지 못합니다','자료를 준비하겠습니다','지금 출발합니다'],explain:'准时는 “정시에, 제시간에”, 到는 “도착하다”예요. 약속 시간에 맞춰 가겠다는 뜻이에요.'},
+    {hanzi:'辛苦了',pinyin:'xīn kǔ le',answer:'수고하셨습니다',choices:['축하합니다','수고하셨습니다','반갑습니다','잘 부탁드립니다'],explain:'辛苦了는 상대의 노고를 인정하며 건네는 “수고하셨습니다”라는 따뜻한 표현이에요.'},
+    {hanzi:'没问题',pinyin:'méi wèn tí',answer:'문제없어요',choices:['문제없어요','잘 모르겠어요','늦을 것 같아요','다시 생각해 볼게요'],explain:'没问题는 직역하면 “문제가 없다”예요. 요청에 동의하거나 괜찮다고 답할 때 쓸 수 있어요.'},
+    {hanzi:'请发给我',pinyin:'qǐng fā gěi wǒ',answer:'저에게 보내 주세요',choices:['저에게 보내 주세요','저에게 전화해 주세요','저를 기다려 주세요','저에게 알려 주세요'],explain:'发给我는 “나에게 보내다”예요. 请을 더해 공손하게 자료나 파일을 요청할 수 있어요.'},
+    {hanzi:'我需要确认一下',pinyin:'wǒ xū yào què rèn yí xià',answer:'한번 확인해 봐야 합니다',choices:['한번 확인해 봐야 합니다','오늘 바로 결정하겠습니다','다시 설명해 주세요','회의를 취소하겠습니다'],explain:'需要는 “필요하다”, 确认은 “확인하다”예요. 정확히 확인하고 답하겠다는 표현이에요.'},
+    {hanzi:'合作愉快',pinyin:'hé zuò yú kuài',answer:'즐거운 협업이 되길 바랍니다',choices:['즐거운 협업이 되길 바랍니다','회의가 곧 시작됩니다','자료를 잘 받았습니다','수고 많으셨습니다'],explain:'合作는 “협력·협업”, 愉快는 “즐겁다”예요. 함께 일하게 된 기쁨을 전하는 인사말이에요.'},
+    {hanzi:'我现在有空',pinyin:'wǒ xiàn zài yǒu kòng',answer:'저 지금 시간 괜찮아요',choices:['저 지금 시간 괜찮아요','지금 회의 중이에요','오늘 시간이 안 돼요','곧 사무실에 도착해요'],explain:'现在는 “지금”, 有空은 “시간이 있다, 한가하다”예요. 잠깐 이야기할 수 있다고 알릴 때 유용해요.'}
+  ];
+
+  const ROUND_SIZE = 10;
+  const LETTERS = ['A','B','C','D'];
+  const PRAISE = ['잘했어요!','정답!','최고예요!','딱 맞았어요','감각 좋아요'];
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const $ = (id) => document.getElementById(id);
+  const ui = {
+    number:$('question-number'), total:$('question-total'), score:$('score'),
+    combo:$('combo'), comboCount:$('combo-count'),
+    fill:$('progress-fill'), bar:document.querySelector('.progress'), progressText:$('progress-text'),
+    kicker:$('question-kicker'), prompt:$('prompt'), pinyin:$('pinyin'),
+    answers:$('answers'), feedback:$('feedback'), actions:$('feedback-actions'),
+    action:$('action-button'), tip:$('tip'),
+    quiz:$('quiz-view'), completion:$('completion'),
+    title:$('complete-title'), copy:$('complete-copy'),
+    finalScore:$('final-score'), bestStreak:$('best-streak'),
+    review:$('review-wrong'), again:$('play-again'), restart:$('restart'),
+    speakBtn:$('speak-btn'), pop:$('pop'), popBubble:$('pop-bubble'), toast:$('toast')
+  };
+
+  const state = { round:[], index:0, score:0, streak:0, best:0, missed:[], mode:'quiz' };
+  let locked = false;
+
+  const shuffle = (arr) => {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  };
+
+  /* ── toast ── */
+  let toastTimer;
+  const toast = (msg) => {
+    ui.toast.textContent = msg;
+    ui.toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => ui.toast.classList.remove('show'), 3000);
+  };
+
+  /* ── speech ── */
+  let zhVoice = null;
+  const speechOK = ('speechSynthesis' in window) && (typeof window.SpeechSynthesisUtterance === 'function');
+  function pickVoice(){
+    if (!speechOK) return;
+    const voices = window.speechSynthesis.getVoices() || [];
+    zhVoice =
+      voices.find(v => /^zh[-_]?cn/i.test(v.lang)) ||
+      voices.find(v => /^zh/i.test(v.lang)) ||
+      voices.find(v => /chinese|mandarin|中文|普通话/i.test(v.name + ' ' + v.lang)) ||
+      null;
+  }
+  if (speechOK) {
+    pickVoice();
+    window.speechSynthesis.onvoiceschanged = pickVoice;
+    setTimeout(pickVoice, 400);
+  }
+  function speak(text, btn){
+    if (!speechOK) {
+      toast('지금 브라우저는 발음 듣기를 지원하지 않아요. 크롬이나 엣지에서 열어 주세요.');
+      return;
+    }
+    if (!zhVoice) pickVoice();
+    const clean = String(text || '').replace(/[?？!！]/g, '').trim();
+    if (!clean) return;
+    try {
+      window.speechSynthesis.cancel();
+      const utter = new window.SpeechSynthesisUtterance(clean);
+      utter.lang = 'zh-CN';
+      utter.rate = 0.85;
+      if (zhVoice) utter.voice = zhVoice;
+      if (btn) {
+        btn.classList.add('speaking');
+        utter.onend = () => btn.classList.remove('speaking');
+        utter.onerror = () => btn.classList.remove('speaking');
+      }
+      window.speechSynthesis.speak(utter);
+    } catch (err) {
+      if (btn) btn.classList.remove('speaking');
+      toast('발음을 재생하지 못했어요. 잠시 후 다시 시도해 주세요.');
+    }
+  }
+  ui.speakBtn.addEventListener('click', () => {
+    const q = state.round[state.index];
+    if (q) speak(q.hanzi, ui.speakBtn);
+  });
+  document.querySelectorAll('[data-speak]').forEach(btn => {
+    btn.addEventListener('click', () => speak(btn.getAttribute('data-speak'), btn));
+  });
+
+  /* ── confetti ── */
+  const canvas = $('confetti');
+  const ctx = canvas.getContext('2d');
+  let particles = [], rafId = 0, dpr = 1;
+  function sizeCanvas(){
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.floor(window.innerWidth * dpr);
+    canvas.height = Math.floor(window.innerHeight * dpr);
+    canvas.style.width = window.innerWidth + 'px';
+    canvas.style.height = window.innerHeight + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  sizeCanvas();
+  window.addEventListener('resize', sizeCanvas);
+
+  const COLORS = ['#1F6E58','#3E9478','#E06D53','#D99B26','#F2C879','#FAF8F3'];
+  function confetti(originX, originY, amount){
+    if (reduceMotion) return;
+    const n = amount || 44;
+    for (let i = 0; i < n; i++) {
+      const angle = (Math.PI * 2 * i) / n + Math.random() * 0.5;
+      const speed = 4 + Math.random() * 8;
+      particles.push({
+        x: originX, y: originY,
+        vx: Math.cos(angle) * speed * (0.7 + Math.random() * 0.6),
+        vy: Math.sin(angle) * speed - 3 - Math.random() * 4,
+        w: 4 + Math.random() * 5,
+        h: 6 + Math.random() * 8,
+        rot: Math.random() * Math.PI,
+        vr: (Math.random() - 0.5) * 0.3,
+        color: COLORS[Math.floor(Math.random() * COLORS.length)],
+        life: 1,
+        decay: 0.012 + Math.random() * 0.01
+      });
+    }
+    if (!rafId) rafId = requestAnimationFrame(draw);
+  }
+  function draw(){
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    particles = particles.filter(p => p.life > 0 && p.y < window.innerHeight + 60);
+    particles.forEach(p => {
+      p.vy += 0.22;
+      p.vx *= 0.995;
+      p.x += p.vx;
+      p.y += p.vy;
+      p.rot += p.vr;
+      p.life -= p.decay;
+      ctx.save();
+      ctx.globalAlpha = Math.max(0, Math.min(1, p.life));
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+      ctx.restore();
+    });
+    if (particles.length) {
+      rafId = requestAnimationFrame(draw);
+    } else {
+      cancelAnimationFrame(rafId);
+      rafId = 0;
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    }
+  }
+
+  /* ── celebration character ── */
+  let popTimer;
+  function cheer(){
+    if (reduceMotion) return;
+    ui.popBubble.textContent = PRAISE[Math.floor(Math.random() * PRAISE.length)];
+    ui.pop.classList.remove('on');
+    void ui.pop.offsetWidth;
+    ui.pop.classList.add('on');
+    clearTimeout(popTimer);
+    popTimer = setTimeout(() => ui.pop.classList.remove('on'), 1550);
+  }
+
+  /* ── 3D card: tilt + turn ── */
+  const stageEl = document.getElementById('card-stage');
+  const tiltEl = document.getElementById('card-tilt');
+  const innerEl = document.getElementById('card-inner');
+  const sheenEl = document.getElementById('card-sheen');
+  let flipping = false;
+  if (stageEl && tiltEl && !reduceMotion) {
+    const MAX_X = 7, MAX_Y = 9;
+    const tilt = { rx:0, ry:0, trx:0, try:0, raf:0 };
+    const apply = () => {
+      tilt.raf = 0;
+      tilt.rx += (tilt.trx - tilt.rx) * 0.12;
+      tilt.ry += (tilt.try - tilt.ry) * 0.12;
+      tiltEl.style.transform = `rotateX(${tilt.rx.toFixed(2)}deg) rotateY(${tilt.ry.toFixed(2)}deg)`;
+      if (Math.abs(tilt.trx - tilt.rx) > 0.03 || Math.abs(tilt.try - tilt.ry) > 0.03) {
+        tilt.raf = requestAnimationFrame(apply);
+      }
+    };
+    const kick = () => { if (!tilt.raf) tilt.raf = requestAnimationFrame(apply); };
+    stageEl.addEventListener('pointermove', (e) => {
+      const r = stageEl.getBoundingClientRect();
+      if (!r.width || !r.height) return;
+      const px = Math.min(Math.max((e.clientX - r.left) / r.width, 0), 1);
+      const py = Math.min(Math.max((e.clientY - r.top) / r.height, 0), 1);
+      tilt.try = (px - 0.5) * 2 * MAX_Y;
+      tilt.trx = -(py - 0.5) * 2 * MAX_X;
+      if (sheenEl) {
+        sheenEl.style.setProperty('--sx', (px * 100).toFixed(1) + '%');
+        sheenEl.style.setProperty('--sy', (py * 100).toFixed(1) + '%');
+      }
+      kick();
+    }, { passive:true });
+    stageEl.addEventListener('pointerenter', () => stageEl.classList.add('tilting'));
+    stageEl.addEventListener('pointerleave', () => {
+      stageEl.classList.remove('tilting');
+      tilt.trx = 0; tilt.try = 0; kick();
+    });
+  }
+
+  function resetCard(){
+    flipping = false;
+    if (!innerEl) return;
+    innerEl.style.transition = 'none';
+    innerEl.style.transform = 'rotateY(0deg) translateZ(0) scale(1)';
+    innerEl.style.opacity = '1';
+  }
+
+  function turnCard(swap){
+    if (reduceMotion || !innerEl) { swap(); return; }
+    flipping = true;
+    innerEl.style.transition = 'transform .26s cubic-bezier(.45,0,.75,0), opacity .2s ease';
+    innerEl.style.transform = 'rotateY(-58deg) translateZ(-46px) scale(.95)';
+    innerEl.style.opacity = '0.18';
+    setTimeout(() => {
+      swap();
+      innerEl.style.transition = 'none';
+      innerEl.style.transform = 'rotateY(58deg) translateZ(-46px) scale(.95)';
+      void innerEl.offsetWidth;
+      innerEl.style.transition = 'transform .46s cubic-bezier(.18,.9,.28,1), opacity .3s ease';
+      innerEl.style.transform = 'rotateY(0deg) translateZ(0) scale(1)';
+      innerEl.style.opacity = '1';
+      setTimeout(() => { flipping = false; }, 470);
+    }, 250);
+  }
+
+  /* ── rendering ── */
+  function updateCombo(){
+    if (state.streak >= 2) {
+      ui.comboCount.textContent = state.streak;
+      ui.combo.hidden = false;
+      ui.combo.style.animation = 'none';
+      void ui.combo.offsetWidth;
+      ui.combo.style.animation = '';
+    } else {
+      ui.combo.hidden = true;
+    }
+  }
+
+  function setProgress(){
+    const total = state.round.length || 1;
+    const pct = Math.round((state.index / total) * 100);
+    ui.fill.style.width = pct + '%';
+    ui.progressText.textContent = pct + '%';
+    ui.bar.setAttribute('aria-valuemax', String(total));
+    ui.bar.setAttribute('aria-valuenow', String(state.index));
+  }
+
+  function render(){
+    const q = state.round[state.index];
+    if (!q) return;
+    locked = false;
+    ui.number.textContent = state.index + 1;
+    ui.total.textContent = state.round.length;
+    ui.score.textContent = state.score;
+    setProgress();
+
+    ui.kicker.textContent = state.mode === 'review' ? '틀린 문제 복습 — 다시 한 번!' : '이 중국어 표현의 뜻은?';
+    ui.tip.textContent = state.mode === 'review'
+      ? '💡 이번에는 꼭 맞힐 수 있어요. 소리 내어 읽어 보세요'
+      : '💡 천천히 읽고 가장 알맞은 뜻을 골라보세요';
+
+    ui.prompt.textContent = q.hanzi;
+    ui.pinyin.textContent = q.pinyin;
+
+    ui.feedback.className = 'feedback';
+    ui.feedback.textContent = '';
+    ui.actions.classList.add('hidden');
+    ui.answers.classList.remove('locked');
+
+    const frag = document.createDocumentFragment();
+    shuffle(q.choices).forEach((choice, i) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'answer';
+      btn.setAttribute('aria-pressed', 'false');
+      const letter = document.createElement('span');
+      letter.className = 'letter';
+      letter.textContent = LETTERS[i];
+      const label = document.createElement('span');
+      label.className = 'answer-text';
+      label.textContent = choice;
+      btn.append(letter, label);
+      btn.addEventListener('click', () => choose(btn, choice));
+      frag.append(btn);
+    });
+    ui.answers.replaceChildren(frag);
+  }
+
+  function recordMiss(q){
+    if (!q.missedOnce) {
+      q.missedOnce = true;
+      state.missed.push(q);
+    }
+  }
+
+  function choose(btn, choice){
+    if (locked || flipping) return;
+    const q = state.round[state.index];
+
+    if (choice === q.answer) {
+      locked = true;
+      btn.classList.add('correct');
+      btn.setAttribute('aria-pressed', 'true');
+      [...ui.answers.children].forEach(el => {
+        el.disabled = true;
+        if (!el.classList.contains('wrong')) el.classList.add('dim');
+      });
+      btn.classList.remove('dim');
+
+      state.score += 1;
+      state.streak += 1;
+      state.best = Math.max(state.best, state.streak);
+      ui.score.textContent = state.score;
+      updateCombo();
+
+      ui.feedback.className = 'feedback show good';
+      ui.feedback.innerHTML = '';
+      const strong = document.createElement('strong');
+      strong.textContent = state.streak >= 2
+        ? `정답이에요! ${state.streak}연속 🔥`
+        : '정답이에요! 잘했어요 👏';
+      const span = document.createElement('span');
+      span.textContent = q.explain;
+      ui.feedback.append(strong, span);
+
+      ui.actions.classList.remove('hidden');
+      ui.action.textContent = state.index === state.round.length - 1 ? '결과 보기' : '다음 문제';
+      ui.action.onclick = next;
+
+      cheer();
+      const rect = btn.getBoundingClientRect();
+      confetti(rect.left + rect.width / 2, rect.top + rect.height / 2, 32);
+    } else {
+      recordMiss(q);
+      state.streak = 0;
+      updateCombo();
+      btn.classList.add('wrong');
+      btn.setAttribute('aria-pressed', 'true');
+      btn.disabled = true;
+
+      ui.feedback.className = 'feedback show bad';
+      ui.feedback.innerHTML = '';
+      const strong = document.createElement('strong');
+      strong.textContent = '아쉬워요, 한 번 더 생각해볼까요?';
+      const span = document.createElement('span');
+      span.textContent = q.explain;
+      ui.feedback.append(strong, span);
+
+      ui.actions.classList.remove('hidden');
+      ui.action.textContent = '다시 도전하기';
+      ui.action.onclick = retry;
+    }
+  }
+
+  function retry(){
+    ui.feedback.className = 'feedback';
+    ui.feedback.textContent = '';
+    ui.actions.classList.add('hidden');
+    locked = false;
+    const nextBtn = ui.answers.querySelector('.answer:not(:disabled)');
+    if (nextBtn) nextBtn.focus({ preventScroll: true });
+  }
+
+  function next(){
+    if (flipping) return;
+    turnCard(() => {
+      if (state.index < state.round.length - 1) {
+        state.index += 1;
+        render();
+        ui.quiz.scrollIntoView({ block: 'nearest', behavior: reduceMotion ? 'auto' : 'smooth' });
+      } else {
+        finish();
+      }
+    });
+  }
+
+  function finish(){
+    const total = state.round.length;
+    const pct = total ? Math.round((state.score / total) * 100) : 0;
+    ui.fill.style.width = '100%';
+    ui.progressText.textContent = '100%';
+    ui.bar.setAttribute('aria-valuenow', String(total));
+
+    ui.quiz.classList.add('hidden');
+    ui.completion.classList.add('show');
+
+    ui.finalScore.innerHTML = '';
+    ui.finalScore.append(document.createTextNode(state.score + ' '));
+    const small = document.createElement('small');
+    small.textContent = '/ ' + total + '점';
+    ui.finalScore.append(small);
+
+    ui.bestStreak.innerHTML = '';
+    ui.bestStreak.append(document.createTextNode(state.best + ' '));
+    const small2 = document.createElement('small');
+    small2.textContent = '연속';
+    ui.bestStreak.append(small2);
+
+    if (state.mode === 'review') {
+      ui.title.textContent = pct === 100 ? '복습 완료, 모두 맞혔어요!' : '복습 완료!';
+      ui.copy.textContent = pct === 100
+        ? '틀렸던 표현을 전부 다시 맞혔어요. 오늘 배운 표현은 이제 내 것이에요.'
+        : '틀린 문제를 다시 풀어 봤어요. 한 번 더 보면 훨씬 오래 기억에 남아요.';
+    } else if (pct === 100) {
+      ui.title.textContent = '완벽해요, 만점!';
+      ui.copy.textContent = '10문제를 모두 맞혔어요. 오늘 배운 표현을 업무에서 한 번 써 보세요.';
+    } else if (pct >= 80) {
+      ui.title.textContent = '중국어 감각이 쑥쑥!';
+      ui.copy.textContent = '정말 잘했어요. 틀린 문제만 다시 풀면 오늘 표현은 완전히 내 것이 돼요.';
+    } else if (pct >= 50) {
+      ui.title.textContent = '좋은 출발이에요!';
+      ui.copy.textContent = '절반을 넘겼어요. 틀린 문제부터 가볍게 다시 풀어 볼까요?';
+    } else {
+      ui.title.textContent = '오늘도 한 걸음 완료!';
+      ui.copy.textContent = '끝까지 푼 것만으로도 충분해요. 틀린 문제만 다시 풀면 훨씬 빨리 늘어요.';
+    }
+
+    const missedCount = state.missed.length;
+    if (missedCount > 0) {
+      ui.review.hidden = false;
+      ui.review.textContent = `틀린 문제만 다시 풀기 (${missedCount})`;
+      ui.review.onclick = startReview;
+    } else {
+      ui.review.hidden = true;
+    }
+
+    if (!reduceMotion) {
+      setTimeout(() => {
+        confetti(window.innerWidth / 2, window.innerHeight * 0.32, 60);
+      }, 180);
+    }
+  }
+
+  /* ── rounds ── */
+  function prepare(list, mode){
+    resetCard();
+    state.round = list.map(q => Object.assign({}, q, { missedOnce: false }));
+    state.index = 0;
+    state.score = 0;
+    state.streak = 0;
+    state.best = 0;
+    state.missed = [];
+    state.mode = mode;
+    locked = false;
+    ui.combo.hidden = true;
+    ui.completion.classList.remove('show');
+    ui.quiz.classList.remove('hidden');
+    ui.pop.classList.remove('on');
+    particles = [];
+    render();
+  }
+
+  function start(){
+    prepare(shuffle(BANK).slice(0, Math.min(ROUND_SIZE, BANK.length)), 'quiz');
+  }
+
+  function startReview(){
+    const wrong = state.missed.slice();
+    if (!wrong.length) { start(); return; }
+    prepare(wrong, 'review');
+  }
+
+  ui.restart.addEventListener('click', () => {
+    window.speechSynthesis && window.speechSynthesis.cancel();
+    start();
+  });
+  ui.again.addEventListener('click', () => {
+    window.speechSynthesis && window.speechSynthesis.cancel();
+    start();
+  });
+
+  /* keyboard: 1-4 answers, Enter to continue */
+  document.addEventListener('keydown', (e) => {
+    if (ui.quiz.classList.contains('hidden')) return;
+    if (e.key >= '1' && e.key <= '4') {
+      const btn = ui.answers.children[Number(e.key) - 1];
+      if (btn && !btn.disabled) btn.click();
+    } else if (e.key === 'Enter' && !ui.actions.classList.contains('hidden')) {
+      if (document.activeElement && document.activeElement.tagName === 'BUTTON') return;
+      ui.action.click();
+    }
+  });
+
+  start();
+})();
+</script>
+<script>
+/* ══════════ 베이징 저녁 3D 배경 (Three.js + CSS 3D 폴백) ══════════ */
+(function () {
+  const host = document.getElementById('beijing-scene');
+  if (!host) return;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const ptr = { x:0, y:0, tx:0, ty:0 };
+
+  const onMove = (e) => {
+    if (e.clientX === undefined) return;
+    ptr.tx = (e.clientX / window.innerWidth - 0.5) * 2;
+    ptr.ty = (e.clientY / window.innerHeight - 0.5) * 2;
+  };
+  window.addEventListener('pointermove', onMove, { passive:true });
+  window.addEventListener('touchmove', (e) => { if (e.touches && e.touches[0]) onMove(e.touches[0]); }, { passive:true });
+
+  /* ── CSS 3D 폴백 패럴랙스 ── */
+  const fbLayers = Array.from(document.querySelectorAll('.fb-layer'));
+  let fbRaf = 0, fbOn = true;
+  const fbTrack = { x:0, y:0 };
+  function fbLoop() {
+    fbRaf = 0;
+    fbTrack.x += (ptr.tx - fbTrack.x) * 0.07;
+    fbTrack.y += (ptr.ty - fbTrack.y) * 0.07;
+    fbLayers.forEach((el, i) => {
+      const d = (i + 1) * 6.5;
+      el.style.transform = 'translate3d(' + (-fbTrack.x * d).toFixed(2) + 'px,' + (-fbTrack.y * d * 0.42).toFixed(2) + 'px,0)';
+    });
+    if (fbOn && (Math.abs(ptr.tx - fbTrack.x) > 0.003 || Math.abs(ptr.ty - fbTrack.y) > 0.003)) {
+      fbRaf = requestAnimationFrame(fbLoop);
+    }
+  }
+  window.addEventListener('pointermove', () => { if (fbOn && !fbRaf && !reduce) fbRaf = requestAnimationFrame(fbLoop); }, { passive:true });
+
+  /* ── Three.js 장면 ── */
+  import('https://cdn.jsdelivr.net/npm/three@0.160.0/build/__missing__.js')
+    .then((THREE) => {
+      try { build(THREE); } catch (err) { console.warn('3D background unavailable', err); }
+    })
+    .catch(() => { /* 폴백 유지 */ });
+
+  function build(THREE) {
+    const canvas = document.createElement('canvas');
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias:true, alpha:true, powerPreference:'high-performance' });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    canvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;display:block';
+    host.insertBefore(canvas, host.querySelector('.fallback'));
+    document.body.classList.add('webgl');
+    fbOn = false;
+    if (fbRaf) { cancelAnimationFrame(fbRaf); fbRaf = 0; }
+
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.Fog(0xC9864D, 200, 620);
+    const camera = new THREE.PerspectiveCamera(45, 1, 1, 1600);
+    camera.position.set(0, 0, 110);
+
+    scene.add(new THREE.AmbientLight(0x7A6250, 0.9));
+    const key = new THREE.DirectionalLight(0xFFB877, 1.6); key.position.set(-80, 6, 90); scene.add(key);
+    const rim = new THREE.DirectionalLight(0x4C8A7C, 0.55); rim.position.set(70, 80, 30); scene.add(rim);
+    const horizon = new THREE.PointLight(0xFF9A55, 2.4, 460, 2); horizon.position.set(0, -46, -20); scene.add(horizon);
+
+    function radialTex(stops) {
+      const c = document.createElement('canvas'); c.width = c.height = 128;
+      const g = c.getContext('2d');
+      const grd = g.createRadialGradient(64, 64, 0, 64, 64, 64);
+      stops.forEach((s) => grd.addColorStop(s[0], s[1]));
+      g.fillStyle = grd; g.fillRect(0, 0, 128, 128);
+      const t = new THREE.CanvasTexture(c);
+      t.colorSpace = THREE.SRGBColorSpace;
+      return t;
+    }
+    const glowTex = radialTex([[0,'rgba(255,216,158,1)'],[0.26,'rgba(255,150,80,.62)'],[0.6,'rgba(255,108,58,.16)'],[1,'rgba(255,90,50,0)']]);
+    const dotTex  = radialTex([[0,'rgba(255,238,204,1)'],[0.42,'rgba(255,206,140,.5)'],[1,'rgba(255,190,120,0)']]);
+
+    const flat = (hex) => new THREE.MeshBasicMaterial({ color:hex });
+    const goldLine = (op) => new THREE.LineBasicMaterial({ color:0xF1C578, transparent:true, opacity:op });
+
+    /* 2D 곡선 지붕 단면 */
+    function roofGeo(w, h, depth) {
+      const s = new THREE.Shape();
+      s.moveTo(-w / 2, 0);
+      s.quadraticCurveTo(-w * 0.30, h * 0.14, -w * 0.17, h * 0.58);
+      s.quadraticCurveTo(-w * 0.09, h * 0.84, 0, h * 0.97);
+      s.quadraticCurveTo(w * 0.09, h * 0.84, w * 0.17, h * 0.58);
+      s.quadraticCurveTo(w * 0.30, h * 0.14, w / 2, 0);
+      s.quadraticCurveTo(0, -h * 0.30, -w / 2, 0);
+      let g;
+      if (depth) {
+        g = new THREE.ExtrudeGeometry(s, { depth, bevelEnabled:false, curveSegments:16 });
+        g.translate(0, 0, -depth / 2);
+      } else {
+        g = new THREE.ShapeGeometry(s, 22);
+      }
+      return g;
+    }
+    function roofMesh(w, h, depth, color, rimOp) {
+      const geo = roofGeo(w, h, depth);
+      const m = new THREE.Mesh(geo, flat(color));
+      if (rimOp) m.add(new THREE.LineSegments(new THREE.EdgesGeometry(geo, 26), goldLine(rimOp)));
+      return m;
+    }
+
+    const TAN = Math.tan((45 / 2) * Math.PI / 180);
+    const groundY = (d) => -0.2 * d;
+    let camZ = 110;
+    const halfWAt = (z) => (camZ - z) * TAN * (window.innerWidth / window.innerHeight);
+
+    /* 근경 · 자금성 성벽과 오문 */
+    const WALL_Z = -120;
+    const wallGroup = new THREE.Group();
+    wallGroup.position.set(0, groundY(camZ - WALL_Z), WALL_Z);
+    scene.add(wallGroup);
+    const wallDark = 0x081714;
+    const wall = new THREE.Mesh(new THREE.BoxGeometry(460, 13, 9), flat(wallDark));
+    wall.position.y = 6.5; wallGroup.add(wall);
+    for (let i = -12; i <= 12; i++) {
+      const b = new THREE.Mesh(new THREE.BoxGeometry(7, 2.4, 10), flat(wallDark));
+      b.position.set(i * 18, 14.2, 0); wallGroup.add(b);
+    }
+    const wallEdge = new THREE.Mesh(new THREE.BoxGeometry(462, 0.45, 9.6),
+      new THREE.MeshBasicMaterial({ color:0xD9A05A, transparent:true, opacity:0.34 }));
+    wallEdge.position.y = 13.2; wallGroup.add(wallEdge);
+    [-300, -150, 0, 150, 300].forEach((x) => {
+      const t = new THREE.Group();
+      t.position.set(x, 13, 0);
+      const body = new THREE.Mesh(new THREE.BoxGeometry(30, 9, 10), flat(wallDark));
+      body.position.y = 4.5; t.add(body);
+      const r1 = roofMesh(44, 8, 10, 0x0C201B, 0.45); r1.position.y = 9; t.add(r1);
+      const body2 = new THREE.Mesh(new THREE.BoxGeometry(17, 5, 8), flat(wallDark));
+      body2.position.y = 19.5; t.add(body2);
+      const r2 = roofMesh(26, 6, 8, 0x0C201B, 0.5); r2.position.y = 22; t.add(r2);
+      wallGroup.add(t);
+    });
+
+    /* 중경 · 천단 (원경 쪽에 우뚝) */
+    const TEMPLE_Z = -240;
+    const temple = new THREE.Group();
+    temple.position.set(-0.74 * halfWAt(TEMPLE_Z), groundY(camZ - TEMPLE_Z), TEMPLE_Z);
+    temple.scale.setScalar(1.28);
+    scene.add(temple);
+    const hallDark = 0x0A1D19;
+    function latheRoof(rb, h, color) {
+      const pts = [];
+      const N = 18;
+      for (let i = 0; i <= N; i++) {
+        const t = i / N;
+        pts.push(new THREE.Vector2(Math.max(0.5, rb * Math.pow(1 - t, 0.5)), h * t));
+      }
+      const geo = new THREE.LatheGeometry(pts, 46);
+      const m = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ color, side:THREE.DoubleSide }));
+      const ring = new THREE.Mesh(
+        new THREE.TorusGeometry(rb, 0.42, 6, 52),
+        new THREE.MeshBasicMaterial({ color:0xF1C578, transparent:true, opacity:0.55 })
+      );
+      ring.rotation.x = Math.PI / 2;
+      m.add(ring);
+      return m;
+    }
+    function cyl(rt, rbm, h, y, color) {
+      const m = new THREE.Mesh(new THREE.CylinderGeometry(rt, rbm, h, 44), flat(color));
+      m.position.y = y;
+      return m;
+    }
+    temple.add(cyl(30, 31, 4, 2, hallDark));
+    temple.add(cyl(26, 27, 4, 6, hallDark));
+    temple.add(cyl(13.5, 14, 11, 13.5, hallDark));
+    const tr1 = latheRoof(19.5, 9, 0x0E2620); tr1.position.y = 19; temple.add(tr1);
+    temple.add(cyl(9, 9, 4.5, 28, hallDark));
+    const tr2 = latheRoof(14.5, 8, 0x0E2620); tr2.position.y = 30.5; temple.add(tr2);
+    temple.add(cyl(5.5, 5.5, 3.5, 35.5, hallDark));
+    const tr3 = latheRoof(10.5, 7, 0x0E2620); tr3.position.y = 37; temple.add(tr3);
+    const finial = new THREE.Mesh(new THREE.ConeGeometry(1.4, 4.6, 16), flat(0xD9A94E));
+    finial.position.y = 45.6; temple.add(finial);
+
+    /* 다층 탑 두 기 — 화면 양 끝 */
+    const pagodas = [];
+    [-1, 1].forEach((side) => {
+      const d = camZ - (-180);
+      const p = new THREE.Group();
+      p.position.set(side * 0.9 * halfWAt(-180), groundY(d), -180);
+      p.scale.setScalar(side < 0 ? 1.15 : 0.96);
+      p.add(cyl(5.6, 6.4, 16, 8, 0x081A16));
+      let y = 16, r = 9.4;
+      for (let i = 0; i < 5; i++) {
+        const rf = latheRoof(r, 4.4, 0x0A1E19);
+        rf.position.y = y; p.add(rf);
+        y += 4.4;
+        if (i < 4) { p.add(cyl(r * 0.42, r * 0.42, 4.2, y + 2.1, 0x081A16)); y += 4.2; }
+        r *= 0.82;
+      }
+      const tip = new THREE.Mesh(new THREE.ConeGeometry(0.9, 3.4, 12), flat(0xD9A94E));
+      tip.position.y = y + 1.7; p.add(tip);
+      scene.add(p);
+      pagodas.push(p);
+    });
+
+    /* 원경 · 언덕 */
+    const HILL_Z = -400;
+    const hills = new THREE.Group();
+    hills.position.set(0, groundY(camZ - HILL_Z), HILL_Z);
+    scene.add(hills);
+    const hs = new THREE.Shape();
+    hs.moveTo(-620, -900);
+    hs.lineTo(-620, 22);
+    hs.bezierCurveTo(-500, 44, -410, 74, -300, 58);
+    hs.bezierCurveTo(-200, 44, -120, 80, 0, 62);
+    hs.bezierCurveTo(110, 44, 180, 82, 290, 64);
+    hs.bezierCurveTo(390, 48, 490, 70, 620, 50);
+    hs.lineTo(620, -900);
+    hs.closePath();
+    hills.add(new THREE.Mesh(new THREE.ShapeGeometry(hs, 26), new THREE.MeshBasicMaterial({ color:0x2B2119, fog:false })));
+
+    /* 화면 비율에 맞춰 배치 재계산 */
+    function layout() {
+      camZ = camera.position.z;
+      wallGroup.position.y = groundY(camZ - WALL_Z);
+      temple.position.set(-0.74 * halfWAt(TEMPLE_Z), groundY(camZ - TEMPLE_Z), TEMPLE_Z);
+      pagodas.forEach((p, i) => {
+        p.position.set((i ? 1 : -1) * 0.9 * halfWAt(-180), groundY(camZ + 180), -180);
+      });
+      hills.position.y = groundY(camZ - HILL_Z);
+    }
+
+    /* 홍등 */
+    const lanterns = [];
+    const lanternGroup = new THREE.Group();
+    scene.add(lanternGroup);
+    const bodyMats = [0xD8322A, 0xCE2C24, 0xE04A34];
+    const capMat = new THREE.MeshStandardMaterial({ color:0xE7B25A, metalness:0.85, roughness:0.32, emissive:0x3A2308, emissiveIntensity:0.5 });
+    const COUNT = window.innerWidth < 700 ? 9 : 15;
+    for (let i = 0; i < COUNT; i++) {
+      const g = new THREE.Group();
+      const size = 1.7 + Math.random() * 1.9;
+      const bodyMat = new THREE.MeshStandardMaterial({
+        color: bodyMats[i % bodyMats.length], emissive:0x8E150C, emissiveIntensity:1.0, roughness:0.42, metalness:0.05
+      });
+      const body = new THREE.Mesh(new THREE.SphereGeometry(1, 22, 16), bodyMat);
+      body.scale.set(1, 1.16, 1);
+      const top = new THREE.Mesh(new THREE.CylinderGeometry(0.34, 0.5, 0.3, 14), capMat); top.position.y = 1.2;
+      const bot = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.34, 0.26, 14), capMat); bot.position.y = -1.2;
+      const cord = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.95, 6), capMat); cord.position.y = -1.78;
+      const glow = new THREE.Sprite(new THREE.SpriteMaterial({
+        map: glowTex, color:0xFFB27C, transparent:true, blending:THREE.AdditiveBlending, depthWrite:false, opacity:0.85
+      }));
+      glow.scale.set(9, 9, 1);
+      g.add(body, top, bot, cord, glow);
+      g.scale.setScalar(size);
+      lanternGroup.add(g);
+      lanterns.push({
+        g, glow,
+        nx: (Math.random() - 0.5) * 1.85,
+        ny: -0.35 + Math.random() * 1.25,
+        z: -130 + Math.random() * 150,
+        size,
+        ph: Math.random() * Math.PI * 2,
+        sp: 0.35 + Math.random() * 0.5,
+        amp: 1.6 + Math.random() * 2.4,
+        par: 0.5 + Math.random() * 1.1
+      });
+    }
+
+    /* 금빛 입자 */
+    const PN = window.innerWidth < 700 ? 200 : 430;
+    const pGeo = new THREE.BufferGeometry();
+    const pPos = new Float32Array(PN * 3);
+    const pSpd = new Float32Array(PN);
+    const pPh = new Float32Array(PN);
+    for (let i = 0; i < PN; i++) {
+      pPos[i * 3] = (Math.random() - 0.5) * 320;
+      pPos[i * 3 + 1] = -60 + Math.random() * 130;
+      pPos[i * 3 + 2] = -140 + Math.random() * 190;
+      pSpd[i] = 0.5 + Math.random() * 1.2;
+      pPh[i] = Math.random() * Math.PI * 2;
+    }
+    pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
+    const pMat = new THREE.PointsMaterial({
+      size:1.7, map:dotTex, transparent:true, depthWrite:false,
+      blending:THREE.AdditiveBlending, color:0xFFD9A2, opacity:0.9, sizeAttenuation:true
+    });
+    const points = new THREE.Points(pGeo, pMat);
+    scene.add(points);
+
+    /* 화면 크기 대응 */
+    let halfW = 45, halfH = 45;
+    function resize() {
+      const w = window.innerWidth, h = window.innerHeight;
+      const aspect = w / h;
+      renderer.setSize(w, h, false);
+      camera.aspect = aspect;
+      camera.position.z = aspect < 0.75 ? 110 * Math.pow(0.75 / aspect, 0.55) : 110;
+      camera.updateProjectionMatrix();
+      halfH = camera.position.z * Math.tan((45 / 2) * Math.PI / 180);
+      halfW = halfH * aspect;
+      const sx = Math.max(0.35, Math.min(1, aspect / 1.2));
+      lanterns.forEach((L) => {
+        L.baseX = L.nx * halfW * 0.94 * sx + L.nx * 12;
+        L.baseY = L.ny * halfH * 0.82;
+      });
+      layout();
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    /* 렌더 루프 */
+    const clock = new THREE.Clock();
+    let raf = 0;
+    let running = true;
+    const smooth = { x:0, y:0 };
+
+    function drawOnce() {
+      smooth.x += (ptr.tx - smooth.x) * 0.05;
+      smooth.y += (ptr.ty - smooth.y) * 0.05;
+    }
+    function frame() {
+      raf = 0;
+      if (!running) return;
+      const dt = Math.min(clock.getDelta(), 0.05);
+      const t = clock.elapsedTime;
+      smooth.x += (ptr.tx - smooth.x) * 0.045;
+      smooth.y += (ptr.ty - smooth.y) * 0.045;
+      const scrollShift = Math.min(window.scrollY || 0, 2400) * 0.008;
+      camera.position.x = smooth.x * 17;
+      camera.position.y = -smooth.y * 9 - scrollShift;
+      camera.lookAt(smooth.x * 3.4, -smooth.y * 1.8, 0);
+
+      lanterns.forEach((L) => {
+        L.g.position.x = L.baseX - smooth.x * 2.2 * L.par + Math.cos(t * L.sp * 0.8 + L.ph) * L.amp * 0.8;
+        L.g.position.y = L.baseY + Math.sin(t * L.sp + L.ph) * L.amp - smooth.y * 1.4 * L.par;
+        L.g.position.z = L.z;
+        L.g.rotation.y = t * 0.18 + L.ph;
+        L.g.rotation.z = Math.sin(t * L.sp * 0.7 + L.ph) * 0.11;
+        L.glow.material.opacity = 0.72 + Math.sin(t * 1.5 + L.ph) * 0.16;
+      });
+
+      const arr = pGeo.attributes.position.array;
+      for (let i = 0; i < PN; i++) {
+        arr[i * 3 + 1] += pSpd[i] * dt * 3.4;
+        arr[i * 3] += Math.sin(t * 0.6 + pPh[i]) * dt * 1.6;
+        if (arr[i * 3 + 1] > 78) arr[i * 3 + 1] = -62;
+      }
+      pGeo.attributes.position.needsUpdate = true;
+
+      renderer.render(scene, camera);
+      raf = requestAnimationFrame(frame);
+    }
+
+    if (reduce) {
+      resize();
+      lanterns.forEach((L) => { L.g.position.set(L.baseX, L.baseY, L.z); });
+      renderer.render(scene, camera);
+    } else {
+      raf = requestAnimationFrame(frame);
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) { running = false; if (raf) { cancelAnimationFrame(raf); raf = 0; } }
+        else if (!running) { running = true; clock.getDelta(); if (!raf) raf = requestAnimationFrame(frame); }
+      });
+    }
+  }
+})();
+</script>
+</body>
+</html>
